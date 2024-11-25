@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:target {
+  scroll-margin-top: 100px;
+}
+.fancybox__container {
+  z-index: 1999;
+}
+.fancybox__track,
+.fancybox__content,
+.carousel__track {
+  direction: ltr !important;
+}
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin clearInput {
+  border: none;
+  background: none;
+  outline: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 32px;
+  direction: rtl;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
+body {
+  overflow-x: hidden;
+  position: relative;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+$white: #fff;
+$main-color: #172541;
+$text-color: #9ba4bf;
+$second: #174a8b;
+$transation: all 0.4s ease-in-out;
+$shadow: 0 20px 40px 0 rgba(76.00000000000001, 111, 255, 0.15);
+$text-gradiant: linear-gradient(-272.54deg, #c0d7ee 12.86%, #0f67b6 68.06%);
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: $white;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background: $text-gradiant;
+}
