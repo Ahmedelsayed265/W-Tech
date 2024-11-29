@@ -1,11 +1,27 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { dehighlight, handleChange, highlight } from "../../utils/helpers";
+
 function Footer() {
+  const [openForm, setOpenForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    contactType: "",
+    service: "",
+  });
+
+  const toggleForm = () => {
+    setOpenForm(!openForm);
+  };
+
   return (
     <footer>
       <div className="container">
         <div className="row">
           <div className="col-lg-4 col-md-6 col-12">
             <div className="logo">
-              <img src="assets/img/logo.svg" alt="" />
+              <img src="/logo.svg" alt="" />
             </div>
             <p className="about">
               احدى شركات المؤسسة العالمية الحديثة للإتصالات وتقنية المعلومات
@@ -17,19 +33,21 @@ function Footer() {
             </div>
             <ul>
               <li>
-                <a href="about.html">من نحن</a>
+                <Link to="/about">من نحن</Link>
               </li>
               <li>
-                <a href="blogs.html">المدونة و الاخبار</a>
+                <Link to="/blogs">المدونة و الاخبار</Link>
               </li>
               <li>
-                <a href="contact.html">إتصل بنا</a>
+                <Link to="/contact">إتصل بنا</Link>
               </li>
               <li>
-                <a href="">سياسة الخصوصية</a>
+                <Link to="/terms">سياسة الخصوصية</Link>
               </li>
               <li>
-                <a href="">سياسة الأستبدال و الأسترجاع</a>
+                <Link to="/recovery-replacement">
+                  سياسة الأستبدال و الأسترجاع
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,19 +58,19 @@ function Footer() {
             <ul>
               <li>
                 <i className="fa-sharp fa-solid fa-envelope"></i>
-                <a href="mailto:sales@ocoda.com">hr@wsf.com</a>
+                <Link to="mailto:sales@ocoda.com">hr@wsf.com</Link>
               </li>
               <li>
                 <i className="fa-sharp fa-solid fa-envelope"></i>
-                <a href="mailto:sales@ocoda.com">sales@wsf.com</a>
+                <Link to="mailto:sales@ocoda.com">sales@wsf.com</Link>
               </li>
               <li>
                 <i className="fa-sharp fa-solid fa-phone"></i>
-                <a href="tel:+966564741999">+966564741999</a>
+                <Link to="tel:+966564741999">+966564741999</Link>
               </li>
               <li>
                 <i className="fa-brands fa-whatsapp"></i>
-                <a href="htttps://wa.me/+966564741999">+966564741999</a>
+                <Link to="htttps://wa.me/+966564741999">+966564741999</Link>
               </li>
             </ul>
           </div>
@@ -62,33 +80,33 @@ function Footer() {
             </p>
             <ul className="social-media">
               <li>
-                <a href="#">
+                <Link to="#">
                   <i className="fa-brands fa-facebook-f"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   <i className="fa-brands fa-instagram"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   <i className="fa-brands fa-twitter"></i>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">
+                <Link to="#">
                   <i className="fa-brands fa-linkedin-in"></i>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* <div className="floatForm">
-        <div className="formDiv">
-          <img src="assets/img/fav.svg" className="logo" alt="" />
+      <div className="floatForm">
+        <div className={`formDiv ${openForm ? "active" : ""}`}>
+          <img src="/fav.svg" className="logo" alt="" />
           <form action="">
             <div className="inputfield">
               <label htmlFor="name"> اسمك كاملاً</label>
@@ -96,8 +114,10 @@ function Footer() {
                 type="text"
                 id="name"
                 name="name"
-                // onFocus="highlight(this)"
-                // onBlur="dehighlight(this)"
+                value={formData.name}
+                onChange={(e) => handleChange(e, setFormData)}
+                onFocus={(e) => highlight(e)}
+                onBlur={(e) => dehighlight(e)}
               />
               <span className="highlight"></span>
             </div>
@@ -108,8 +128,10 @@ function Footer() {
                 type="tel"
                 id="phone"
                 name="phone"
-                // onFocus="highlight(this)"
-                // onBlur="dehighlight(this)"
+                value={formData.phone}
+                onChange={(e) => handleChange(e, setFormData)}
+                onFocus={(e) => highlight(e)}
+                onBlur={(e) => dehighlight(e)}
               />
               <span className="highlight"></span>
             </div>
@@ -119,8 +141,10 @@ function Footer() {
               <select
                 name="contactType"
                 id="contactType"
-                // onFocus="highlight(this)"
-                // onBlur="dehighlight(this)"
+                value={formData.contactType}
+                onChange={(e) => handleChange(e, setFormData)}
+                onFocus={(e) => highlight(e)}
+                onBlur={(e) => dehighlight(e)}
               >
                 <option value="" disabled selected></option>
                 <option value=""> اتصال </option>
@@ -134,8 +158,10 @@ function Footer() {
               <select
                 name="service"
                 id="service"
-                // onFocus="highlight(this)"
-                // onBlur="dehighlight(this)"
+                value={formData.service}
+                onChange={(e) => handleChange(e, setFormData)}
+                onFocus={(e) => highlight(e)}
+                onBlur={(e) => dehighlight(e)}
               >
                 <option value="" disabled selected></option>
                 <option value="تصميم مواقع">تصميم مواقع</option>
@@ -152,21 +178,38 @@ function Footer() {
               </select>
               <span className="highlight"></span>
             </div>
+
             <button type="submit">
               إرسال <i className="fa-sharp fa-light fa-paper-plane"></i>
             </button>
           </form>
         </div>
-        <button className="btn openBtn">
+        <button className="btn openBtn" onClick={toggleForm}>
           <i className="fa-duotone fa-comments"></i>
         </button>
-      </div> */}
+      </div>
 
-      <a href="#!" className="floatWhatsapp">
+      <Link to="#!" className="floatWhatsapp">
         <i className="fa-brands fa-whatsapp"></i>
-      </a>
+      </Link>
     </footer>
   );
 }
 
 export default Footer;
+
+{
+  /* 
+          
+
+            
+
+            
+
+            
+            
+          </form>
+        </div>
+        
+      </div> */
+}

@@ -135,6 +135,13 @@
               height: 50px !important;
             }
           }
+          .dropdown {
+            width: 100% !important;
+
+            a {
+              width: 100%;
+            }
+          }
           .dropdown-menu {
             a {
               width: 100%;
@@ -290,6 +297,167 @@ footer {
         i {
           font-size: 14px;
           color: $main-color;
+        }
+      }
+    }
+  }
+}
+.floatWhatsapp {
+  position: fixed;
+  z-index: 20;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: $white;
+  font-size: 32px;
+  box-shadow: 0px 4px 8px #25d36630;
+}
+.floatForm {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    color: #174a8b;
+    background-color: $white;
+    font-size: 24px;
+    box-shadow: 0px 4px 8px #6e95cf30;
+  }
+
+  .formDiv {
+    padding: 16px;
+    box-shadow: $shadow;
+    background: $white;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 330px;
+    width: min(100% - 8px, 400px);
+    transition: $transation;
+
+    &.active {
+      display: flex;
+    }
+    .logo {
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .inputfield {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        label {
+          position: absolute;
+          font-size: 12px;
+          color: #7b88a8;
+          right: 4px;
+          transform: translateY(-50%);
+          top: 50%;
+          font-weight: 500;
+          transition: $transation;
+          cursor: auto;
+          &.message-label {
+            top: 20%;
+          }
+          &.h {
+            top: -4px;
+            color: $main-color;
+          }
+        }
+        input,
+        textarea,
+        select {
+          width: 100%;
+          height: 40px;
+          font-size: 12px;
+
+          @include clearInput();
+          &:focus + span::after {
+            width: calc(100% - 16px);
+          }
+        }
+        textarea {
+          padding: 16px 0;
+          height: 130px;
+        }
+        .highlight {
+          width: 100%;
+          height: 2px;
+          background: #eeeeee;
+          &::after {
+            content: "";
+            width: 0;
+            transition: $transation;
+            left: 50%;
+            height: 2px;
+            background: $main-color;
+            position: absolute;
+            transform: translate(-50%);
+          }
+        }
+      }
+      button {
+        @include clearInput();
+        align-self: flex-end;
+        isolation: isolate;
+        padding: 0 16px;
+        width: 166px;
+        height: 40px;
+        border: 1px solid #4c6fff;
+        color: #4c6fff;
+        border-radius: 4px;
+        font-size: 14px;
+        @include centerFlex();
+        display: flex;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        transition: $transation;
+        i {
+          transform: scaleX(-1);
+        }
+        &::after {
+          position: absolute;
+          content: "";
+          height: 150px;
+          width: 0;
+          right: 10px;
+          transition: $transation;
+          background: $main-color;
+          transform: rotate(-25deg);
+          z-index: -1;
+        }
+        &:hover {
+          color: $white;
+          border-color: $main-color;
+          &::after {
+            width: 110%;
+            right: -10px;
+          }
         }
       }
     }

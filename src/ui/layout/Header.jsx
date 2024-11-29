@@ -1,7 +1,30 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const [showNavMenu, setShowNavMenu] = useState(false);
+
+  const toggleNavMenu = () => {
+    setShowNavMenu(!showNavMenu);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 991) {
+        setShowNavMenu(false);
+      }
+    });
+
+    return () => {
+      window.removeEventListener("resize", () => {
+        if (window.innerWidth > 991) {
+          setShowNavMenu(false);
+        }
+      });
+    };
+  });
+
   return (
     <nav className="header">
       <div className="container d-flex">
@@ -10,7 +33,7 @@ function Header() {
             <img src="/logo.svg" alt="logo" />
           </Link>
         </div>
-        <div className="nav-links">
+        <div className={`nav-links ${showNavMenu ? "show" : ""}`}>
           <ul className="navigations">
             <li className="nav-link active">
               <NavLink to="/">الرئيسية</NavLink>
@@ -73,7 +96,7 @@ function Header() {
           <a href="tel:+966555555555">
             <i className="fa-light fa-phone"></i>
           </a>
-          <div className="toogler">
+          <div className="toogler" onClick={toggleNavMenu}>
             <span></span>
             <span></span>
             <span></span>

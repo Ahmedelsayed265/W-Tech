@@ -200,6 +200,12 @@ body .header .container .nav-links .navigations .nav-link .dropdown-menu li a::a
   }
 }
 @media (max-width: 992px) {
+  body .header .container .nav-links .navigations .dropdown {
+    width: 100% !important;
+  }
+  body .header .container .nav-links .navigations .dropdown a {
+    width: 100%;
+  }
   body .header .container .nav-links .navigations .dropdown-menu a {
     width: 100%;
     display: block;
@@ -366,10 +372,176 @@ body footer .copyrights ul a i {
   font-size: 14px;
   color: #172541;
 }
+body .floatWhatsapp {
+  position: fixed;
+  z-index: 20;
+  left: 20px;
+  bottom: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  color: #fff;
+  font-size: 32px;
+  box-shadow: 0px 4px 8px rgba(37, 211, 102, 0.1882352941);
+}
+body .floatForm {
+  position: fixed;
+  z-index: 20;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+body .floatForm .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 56px;
+  height: 56px;
+  color: #174a8b;
+  background-color: #fff;
+  font-size: 24px;
+  box-shadow: 0px 4px 8px rgba(110, 149, 207, 0.1882352941);
+}
+body .floatForm .formDiv {
+  padding: 16px;
+  box-shadow: 0 20px 40px 0 rgba(76, 111, 255, 0.15);
+  background: #fff;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 330px;
+  width: min(100% - 8px, 400px);
+  transition: all 0.4s ease-in-out;
+}
+body .floatForm .formDiv.active {
+  display: flex;
+}
+body .floatForm .formDiv .logo {
+  height: 60px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 0;
+}
+body .floatForm .formDiv form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+body .floatForm .formDiv form .inputfield {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+body .floatForm .formDiv form .inputfield label {
+  position: absolute;
+  font-size: 12px;
+  color: #7b88a8;
+  right: 4px;
+  transform: translateY(-50%);
+  top: 50%;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  cursor: auto;
+}
+body .floatForm .formDiv form .inputfield label.message-label {
+  top: 20%;
+}
+body .floatForm .formDiv form .inputfield label.h {
+  top: -4px;
+  color: #172541;
+}
+body .floatForm .formDiv form .inputfield input,
+body .floatForm .formDiv form .inputfield textarea,
+body .floatForm .formDiv form .inputfield select {
+  width: 100%;
+  height: 40px;
+  font-size: 12px;
+  border: none;
+  background: none;
+  outline: none;
+}
+body .floatForm .formDiv form .inputfield input:focus + span::after,
+body .floatForm .formDiv form .inputfield textarea:focus + span::after,
+body .floatForm .formDiv form .inputfield select:focus + span::after {
+  width: calc(100% - 16px);
+}
+body .floatForm .formDiv form .inputfield textarea {
+  padding: 16px 0;
+  height: 130px;
+}
+body .floatForm .formDiv form .inputfield .highlight {
+  width: 100%;
+  height: 2px;
+  background: #eeeeee;
+}
+body .floatForm .formDiv form .inputfield .highlight::after {
+  content: "";
+  width: 0;
+  transition: all 0.4s ease-in-out;
+  left: 50%;
+  height: 2px;
+  background: #172541;
+  position: absolute;
+  transform: translate(-50%);
+}
+body .floatForm .formDiv form button {
+  border: none;
+  background: none;
+  outline: none;
+  align-self: flex-end;
+  isolation: isolate;
+  padding: 0 16px;
+  width: 166px;
+  height: 40px;
+  border: 1px solid #4c6fff;
+  color: #4c6fff;
+  border-radius: 4px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+body .floatForm .formDiv form button i {
+  transform: scaleX(-1);
+}
+body .floatForm .formDiv form button::after {
+  position: absolute;
+  content: "";
+  height: 150px;
+  width: 0;
+  right: 10px;
+  transition: all 0.4s ease-in-out;
+  background: #172541;
+  transform: rotate(-25deg);
+  z-index: -1;
+}
+body .floatForm .formDiv form button:hover {
+  color: #fff;
+  border-color: #172541;
+}
+body .floatForm .formDiv form button:hover::after {
+  width: 110%;
+  right: -10px;
+}
 body #root {
   min-height: 100dvh;
   width: 100%;
 }
 body main {
-  min-height: 100dvh;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
