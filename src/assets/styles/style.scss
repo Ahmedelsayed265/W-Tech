@@ -1,9 +1,12 @@
 @import "./config";
+@import "./loaders";
+@import "./swipers";
+@import "./home";
 
 body {
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #fff;
 
   @import "./layout";
@@ -15,5 +18,10 @@ body {
 
   main {
     width: 100%;
+    position: relative;
+    min-height: 100dvh;
   }
+}
+.fancybox__container {
+  z-index: 99999999999 !important;
 }

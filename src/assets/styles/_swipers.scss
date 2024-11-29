@@ -1,0 +1,183 @@
+.hero-section {
+  background-size: cover;
+  background-position: 50% 85%;
+  background-color: #f8f9fd;
+  width: 100%;
+  .hero-swiper {
+    width: 100%;
+    gap: 24px;
+    padding-bottom: 24px;
+    flex-direction: column;
+    @include centerFlex();
+    .swiper-slide {
+      background-color: #f8f9fd;
+      padding: 24px;
+      display: flex;
+      height: auto;
+      @media (min-width: 768px) {
+        .row {
+          flex-direction: row-reverse;
+        }
+      }
+      @media (max-width: 768px) {
+        align-items: center;
+      }
+    }
+    .heroPagination {
+      position: relative;
+      bottom: unset;
+      left: unset;
+      right: unset;
+      top: unset;
+      padding: 12px;
+      gap: 4px;
+      display: flex;
+      align-items: center;
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+      .swiper-pagination-bullet {
+        transition: all 0.4s ease-in-out;
+        width: 10px;
+        height: 10px;
+        border: 1px solid $second;
+        transform: rotate(45deg);
+        background-color: unset;
+        border-radius: 0;
+        &.swiper-pagination-bullet-active {
+          background-color: $second;
+        }
+      }
+    }
+  }
+  .hero-description {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    h1 {
+      font-size: 40px;
+      color: $main-color;
+      font-weight: bold;
+      line-height: 62px;
+      span {
+        background: $text-gradiant;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: inherit;
+      }
+    }
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      color: $text-color;
+    }
+    .links {
+      display: flex;
+      gap: 16px;
+      // margin-top: auto;
+      a {
+        padding: 12px 32px;
+        font-weight: 500;
+        border-radius: 4px;
+        transition: $transation;
+        &:nth-child(1) {
+          background: $second;
+          color: $white;
+          &:hover {
+            background: $main-color;
+          }
+        }
+        &:nth-child(2) {
+          border: 1px solid $second;
+          color: $second;
+          &:hover {
+            border-color: $main-color;
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 990px) {
+    .hero-description {
+      align-items: center;
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .hero-description {
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 16px;
+        padding: 0 12px;
+      }
+    }
+  }
+  @media (max-width: 420px) {
+    .hero-description {
+      h1 {
+        font-size: 28px !important;
+        line-height: 44px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+  .headImg {
+    width: 100%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      padding: 20px;
+    }
+  }
+}
+.swiper-slide.swiper-slide-active {
+  h1 {
+    animation: fadeInUp 1s 0.5s both;
+  }
+  p {
+    animation: fadeInUp 1s 1s both;
+  }
+  .links {
+    animation: fadeInUp 1s 1.5s both;
+  }
+  .headImg img {
+    animation: slideInRight 1s 0.5s both;
+    @media (max-width: 768px) {
+      animation: fadeInUp 1s 0.5s both;
+    }
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
