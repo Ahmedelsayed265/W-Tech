@@ -108,7 +108,7 @@
     min-height: 400px;
     border-radius: 6px;
     background-image: linear-gradient(#00000043, #0000003c),
-      url("../../../public/business.jpg");
+      url("/business.jpg");
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -176,5 +176,413 @@
     transform: scale(0.9, 0.9);
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+}
+.services {
+  padding: 100px 0 40px;
+  background-color: $white;
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
+  position: relative;
+  .strip2 {
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: -30px;
+    img {
+      max-width: 100%;
+      animation: rotator 5s linear infinite;
+    }
+  }
+  .strip3 {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: -150px;
+    img {
+      max-width: 100%;
+    }
+  }
+  @keyframes rotator {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  h3 {
+    text-align: center;
+    color: $main-color;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .sub-title {
+    text-align: center;
+    color: $text-color;
+    font-size: 14px;
+    width: min(100%, 700px);
+    margin: auto;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+  .service-card {
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    height: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: $transation !important;
+    gap: 10px;
+    &:hover {
+      box-shadow: $shadow;
+      transform: translateY(-16px);
+      border-color: transparent;
+    }
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      img {
+        max-height: 50px;
+      }
+    }
+    h4 {
+      margin: 16px 0 0;
+      font-size: 22px;
+      color: $main-color;
+      font-weight: 500;
+      line-height: 30px;
+    }
+    p {
+      color: #7b88a8;
+      font-size: 12px;
+      margin: 0;
+      line-height: 24px;
+    }
+  }
+}
+.blogs {
+  padding: 60px 0;
+  background-color: #f8f9fd;
+  h3 {
+    text-align: center;
+    color: $main-color;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .sub-title {
+    text-align: center;
+    color: $text-color;
+    font-size: 14px;
+    width: min(100%, 700px);
+    margin: auto;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+}
+.blog {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: $white;
+  border-radius: 8px;
+  a {
+    width: 100%;
+    display: block;
+    position: relative;
+    .blog_image {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transition: $transation;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 3 / 2;
+        transition: $transation;
+      }
+    }
+    .date {
+      width: 50px;
+      height: 50px;
+      background-color: $second;
+      position: absolute;
+      bottom: -25px;
+      left: 16px;
+      z-index: 9;
+      @include centerFlex();
+      flex-direction: column;
+      border-radius: 2px;
+      span {
+        z-index: 99;
+        line-height: 18px;
+        font-size: 12px;
+        color: $white;
+      }
+    }
+  }
+  h4 {
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    a {
+      color: $main-color;
+      line-height: inherit;
+    }
+  }
+  .read_more {
+    background: $second;
+    color: $white;
+    padding: 4px 16px;
+    font-size: 12px;
+    width: fit-content;
+    border-radius: 4px;
+    transition: $transation;
+    &:hover {
+      background-color: $main-color;
+    }
+  }
+  &:hover {
+    a .blog_image {
+      img {
+        transform: scale(1.15) rotate(-1deg);
+      }
+    }
+  }
+}
+.blogs_section {
+  padding: 40px 0;
+}
+
+.blog_details__section {
+  padding: 40px 16px;
+  @media (max-width: 576px) {
+    padding: 20px 16px;
+  }
+  .row {
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
+  }
+  .blog_img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: $shadow;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  .blog_content {
+    h3 {
+      font-size: 24px;
+      line-height: 1.5;
+      color: $main-color;
+      font-weight: 600;
+      @media (max-width: 576px) {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+    }
+    span {
+      color: $second;
+    }
+    p {
+      margin-top: 32px;
+      font-size: 12px;
+      color: $text-color;
+      line-height: 24px;
+      margin-bottom: 24px;
+    }
+    .share_blog {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      h6 {
+        color: $main-color;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .social_share {
+        display: flex;
+        gap: 8px;
+        a {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          color: $main-color;
+          @include centerFlex();
+          i {
+            margin: 0;
+            transition: $transation;
+            font-size: 16px;
+          }
+          &:hover {
+            background: $second;
+            color: $second;
+            i {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.faqs {
+  padding: 60px 12px;
+  h3 {
+    text-align: center;
+    color: $main-color;
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .sub-title {
+    text-align: center;
+    color: $text-color;
+    font-size: 14px;
+    width: min(100%, 700px);
+    margin: auto;
+    line-height: 24px;
+    margin-bottom: 48px;
+  }
+  .nav {
+    flex-wrap: wrap;
+    border-radius: 8px;
+    width: 100%;
+    background: #f8fafc;
+    display: flex;
+    cursor: pointer;
+    gap: 8px;
+    .nav-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: $main-color !important;
+    }
+    .nav-link.active {
+      background-color: $main-color !important;
+      color: $white !important;
+    }
+  }
+}
+.accordion-button {
+  text-align: inherit;
+}
+.accordion-button,
+.accordion-body {
+  padding: 16px 0 !important;
+}
+.accordion-button:not(.collapsed) {
+  background: none !important;
+}
+.accordion-button::after {
+  margin-right: auto !important;
+  margin-left: initial;
+}
+.accordion-button:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.accordion-item {
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-left: 0 !important;
+  border-bottom: 1px solid #d7d7d7 !important;
+  border-radius: 0 !important;
+}
+.accordion-body {
+  font-size: 12px;
+  color: $text-color;
+  line-height: 24px;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+}
+.accordion-button {
+  font-size: 14px !important;
+  font-weight: 600;
+}
+a,
+button {
+  transition: $transation;
+}
+.features {
+  width: 100%;
+  margin-bottom: 60px;
+  background: $second;
+  background-repeat: no-repeat;
+  background-position: 0% 20%;
+  padding: 40px 0;
+  p {
+    text-align: center;
+    color: $white;
+    margin: 0;
+    font-size: 12px;
+    width: min(100%, 700px);
+    margin: 0 auto 16px;
+    font-weight: 400;
+    transition: $transation;
+  }
+  h2 {
+    text-align: center;
+    color: $white;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-size: 24px;
+    transition: $transation;
+    font-weight: bold;
+  }
+  .feature {
+    transition: $transation;
+    @include centerFlex();
+    flex-direction: column;
+    height: 100%;
+    .icon {
+      width: 100px;
+      background: $white;
+      height: 100px;
+      @include centerFlex();
+      border-radius: 50%;
+      transition: $transation;
+      img {
+        height: 40px;
+        transition: $transation;
+      }
+    }
+    h6 {
+      margin-top: 24px;
+      margin-bottom: 0;
+      line-height: 24px;
+      color: $white;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      transition: $transation;
+    }
+  }
+  @media (max-width: 768px) {
+    background-image: none;
   }
 }
