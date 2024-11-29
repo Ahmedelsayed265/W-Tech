@@ -586,3 +586,78 @@ button {
     background-image: none;
   }
 }
+.news {
+  background-color: $white;
+  padding-bottom: 60px;
+}
+.newsletter {
+  min-height: 70vh;
+  background-size: cover;
+  background-image: url("/footer-bg-004.jpeg");
+  margin-bottom: 60px;
+  @include centerFlex();
+  flex-direction: column;
+  gap: 40px;
+  margin: 0;
+  padding: 0 200px;
+  h3 {
+    text-align: center;
+    color: $white;
+    line-height: 1.5;
+    font-size: 40px;
+  }
+  form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    input {
+      @include clearInput();
+      width: 50%;
+      height: 56px;
+      background: #f4f3f6;
+      padding: 14px 22px;
+      border-radius: 0px 4px 4px 0;
+      direction: rtl;
+    }
+    button {
+      @include clearInput();
+      height: 56px;
+      background: $second;
+      color: $white;
+      width: 20%;
+      transition: $transation;
+      border-radius: 4px 0 0 4px;
+      &:hover {
+        background: $main-color;
+      }
+    }
+  }
+  @media (max-width: 1115px) {
+    padding: 0 100px;
+  }
+  @media (max-width: 992px) {
+    padding: 0 48px;
+    h3 {
+      font-size: 36px;
+    }
+    form input {
+      width: 70%;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 0 32px;
+    h3 {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: 576px) {
+    height: 60vh;
+    padding: 0 16px;
+    h3 {
+      font-size: 24px;
+    }
+    form button {
+      width: 30%;
+    }
+  }
+}
