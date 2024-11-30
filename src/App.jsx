@@ -4,9 +4,17 @@ import Header from "./ui/layout/Header";
 import Footer from "./ui/layout/Footer";
 import { useEffect, useState } from "react";
 import Preloader from "./ui/loaders/Preloader";
+import { useSelector } from "react-redux";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const lang = useSelector((state) => state.language.lang);
+
+  useEffect(() => {
+    sessionStorage.setItem("lang", lang);
+    const body = document.querySelector("body");
+    lang === "en" ? body.classList.add("en") : body.classList.remove("en");
+  }, [lang]);
 
   useEffect(() => {
     window.addEventListener("load", () => {

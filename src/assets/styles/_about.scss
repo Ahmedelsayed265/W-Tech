@@ -1,0 +1,41 @@
+.about-wrap {
+  padding-bottom: 60px;
+  .illustiration {
+    width: 100%;
+    img {
+      max-width: 100%;
+    }
+  }
+  .about-text {
+    h2 {
+      color: $main-color;
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      position: relative;
+      padding-right: 48px;
+      @media (max-width: 576px) {
+        font-size: 32px;
+      }
+      &::after {
+        width: 32px;
+        height: 2px;
+        content: "";
+        top: 50%;
+        transform: translateY(-50%);
+        background: $main-color;
+        position: absolute;
+        right: 0;
+      }
+    }
+    p {
+      line-height: 28px;
+      color: #7b88a8;
+    }
+  }
+  @media (min-width: 768px) {
+    .row:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+}

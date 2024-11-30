@@ -1,15 +1,15 @@
 @import "./config";
 @import "./loaders";
+@import "./layout";
 @import "./swipers";
 @import "./home";
+@import "./about";
 
 body {
   width: 100%;
   position: relative;
   overflow-x: hidden;
   background: #fff;
-
-  @import "./layout";
 
   #root {
     min-height: 100dvh;
