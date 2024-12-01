@@ -1,6 +1,7 @@
 import About from "./routes/About";
 import BlogDetails from "./routes/BlogDetails";
 import Blogs from "./routes/Blogs";
+import Contact from "./routes/Contact";
 import Home from "./routes/Home";
 import WorkDetails from "./routes/WorkDetails";
 import Works from "./routes/Works";
@@ -29,6 +30,10 @@ const router = [
   {
     path: "/works/:id",
     element: <WorkDetails />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
   },
 ];
 

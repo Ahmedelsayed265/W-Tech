@@ -1897,6 +1897,274 @@ button {
   width: 2px;
 }
 
+.contact {
+  padding: 60px 0;
+}
+.contact .row {
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .contact {
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contact .row {
+    width: 100%;
+  }
+}
+.contact form {
+  padding: 32px;
+  box-shadow: 0 20px 40px 0 rgba(76, 111, 255, 0.15);
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+@media (max-width: 576px) {
+  .contact form {
+    padding: 32px 0;
+  }
+}
+.contact form .form-group {
+  display: flex;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .contact form .form-group {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+.contact form .form-group .inputfield {
+  width: 100%;
+  padding: 0 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.contact form .form-group .inputfield label {
+  position: absolute;
+  font-size: 14px;
+  color: #7b88a8;
+  right: 32px;
+  transform: translateY(-50%);
+  top: 50%;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  cursor: auto;
+}
+.contact form .form-group .inputfield label.message-label {
+  top: 20%;
+}
+.contact form .form-group .inputfield label.h {
+  top: -4px;
+  color: #172541;
+}
+.contact form .form-group .inputfield input,
+.contact form .form-group .inputfield textarea,
+.contact form .form-group .inputfield select {
+  width: 100%;
+  height: 45px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.contact form .form-group .inputfield input:focus + span::after,
+.contact form .form-group .inputfield textarea:focus + span::after,
+.contact form .form-group .inputfield select:focus + span::after {
+  width: calc(100% - 64px);
+}
+.contact form .form-group .inputfield textarea {
+  padding: 16px 0;
+  height: 130px;
+}
+.contact form .form-group .inputfield .highlight {
+  width: 100%;
+  height: 2px;
+  background: #eeeeee;
+}
+.contact form .form-group .inputfield .highlight::after {
+  content: "";
+  width: 0;
+  transition: all 0.4s ease-in-out;
+  left: 50%;
+  height: 2px;
+  background: #172541;
+  position: absolute;
+  transform: translate(-50%);
+}
+.contact form button {
+  border: none;
+  background: none;
+  outline: none;
+  align-self: flex-end;
+  margin-left: 32px;
+  isolation: isolate;
+  padding: 0 16px;
+  width: 166px;
+  height: 50px;
+  border: 1px solid #4c6fff;
+  color: #4c6fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+.contact form button::after {
+  position: absolute;
+  content: "";
+  height: 150px;
+  width: 0;
+  right: 10px;
+  transition: all 0.4s ease-in-out;
+  background: #172541;
+  transform: rotate(-25deg);
+  z-index: -1;
+}
+.contact form button:hover {
+  color: #fff;
+  border-color: #172541;
+}
+.contact form button:hover::after {
+  width: 110%;
+  right: -10px;
+}
+.contact .map-info {
+  margin-top: 80px;
+}
+.contact .map-info .info {
+  border: 1px solid #eeeeee;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 8px;
+  gap: 20px;
+}
+.contact .map-info .info h2 {
+  color: #172541;
+  margin-bottom: 20px;
+}
+.contact .map-info .info .info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.contact .map-info .info .info-card a {
+  font-weight: 400;
+  color: #7b88a8;
+  transition: all 0.4s ease-in-out;
+}
+.contact .map-info .info .info-card a:hover {
+  color: #174a8b;
+}
+.contact .map-info .info .info-card .icon i {
+  color: #172541;
+  font-size: 22px;
+}
+.contact .map-info #mapLocation {
+  border-radius: 8px;
+}
+@media (max-width: 992px) {
+  .contact .map-info #mapLocation {
+    height: 380px !important;
+    margin-top: 32px;
+  }
+}
+.contact .contact_info {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 20px 40px 0 rgba(76, 111, 255, 0.15);
+  border-radius: 8px;
+  padding: 24px;
+}
+.contact .contact_info h3 {
+  font-size: 22px;
+  color: #172541;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.contact .contact_info h5 {
+  font-size: 20px;
+  color: #172541;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.contact .contact_info p {
+  color: #9ba4bf;
+  font-size: 12px;
+  line-height: 22px;
+  margin: 0;
+}
+.contact .contact_info .field {
+  width: 100%;
+  display: flex;
+  margin-bottom: 32px;
+  gap: 16px;
+  align-items: center;
+}
+.contact .contact_info .field .icon {
+  min-width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid #172541;
+  overflow: hidden;
+  isolation: isolate;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in-out;
+}
+.contact .contact_info .field .icon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: all 0.4s ease-in-out;
+  background: #174a8b;
+}
+.contact .contact_info .field .icon i {
+  font-size: 24px;
+  color: #172541;
+  z-index: 1;
+}
+.contact .contact_info .field .text {
+  display: flex;
+  flex-direction: column;
+}
+.contact .contact_info .field .text h4 {
+  margin-bottom: 4px;
+  color: #172541;
+  font-size: 18px;
+}
+.contact .contact_info .field .text a {
+  color: #9ba4bf;
+}
+.contact .contact_info .field:hover .text a {
+  color: #174a8b;
+}
+.contact .contact_info .field:hover .icon {
+  border-color: transparent;
+}
+.contact .contact_info .field:hover .icon i {
+  color: #fff;
+}
+.contact .contact_info .field:hover .icon::after {
+  opacity: 1;
+}
+
 body {
   width: 100%;
   position: relative;
