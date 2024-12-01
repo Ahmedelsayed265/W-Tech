@@ -6,6 +6,7 @@ import Newsletter from "../components/general/Newsletter";
 import Potential from "../components/home/Potential";
 import Services from "../components/home/Services";
 import Statics from "../components/home/Statics";
+import Steps from "../components/home/Steps";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <Statics />
       <Potential />
       <Services />
+      <Steps />
       <Blogs />
       <FAQs />
       <Features />
