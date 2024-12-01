@@ -1,0 +1,104 @@
+.about_service {
+  background-size: cover;
+  background-position: 50% 85%;
+  background-color: #f8f9fd;
+  width: 100%;
+  padding: 60px 0;
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .strip2 {
+      width: 100px;
+      position: absolute;
+      top: 10px;
+      right: -30px;
+      img {
+        max-width: 100%;
+        animation: rotator 5s linear infinite;
+      }
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 32px;
+      color: $second;
+    }
+    h3 {
+      font-size: 16px;
+      color: $main-color;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    p {
+      color: $text-color;
+      font-size: 14px;
+      line-height: 24px;
+      margin-bottom: 24px;
+    }
+    a {
+      @include clearInput();
+      isolation: isolate;
+      padding: 0 16px;
+      width: 166px;
+      height: 50px;
+      border: 1px solid #4c6fff;
+      color: #4c6fff;
+      border-radius: 4px;
+      @include centerFlex();
+      position: relative;
+      overflow: hidden;
+      transition: $transation;
+      &::after {
+        position: absolute;
+        content: "";
+        height: 150px;
+        width: 0;
+        right: 10px;
+        transition: $transation;
+        background: $main-color;
+        transform: rotate(-25deg);
+        z-index: -1;
+      }
+      &:hover {
+        color: $white;
+        border-color: $main-color;
+        &::after {
+          width: 110%;
+          right: -10px;
+        }
+      }
+    }
+  }
+  .video-wrapper {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 6px;
+    background-image: linear-gradient(#00000043, #0000003c),
+      url("/business.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+    .play-btn {
+      width: 80px;
+      height: 80px;
+      background: $second;
+      border-radius: 50%;
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      i {
+        font-size: 28px;
+        color: $white;
+        width: 28px;
+      }
+    }
+  }
+}

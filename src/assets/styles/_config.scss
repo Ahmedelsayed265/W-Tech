@@ -10,6 +10,9 @@
 .carousel__track {
   direction: ltr !important;
 }
+.fancybox__caption {
+  text-align: center;
+}
 @mixin centerFlex {
   display: flex;
   align-items: center;

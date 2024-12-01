@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
@@ -34,7 +35,7 @@ function HeroSection() {
                     بتحسين أداء أعمالك في عالم الرقمي.
                   </p>
                   <div className="links">
-                    <a href="works.html">عرض المشاريع</a>
+                    <Link to="/works">عرض المشاريع</Link>
                   </div>
                 </div>
               </div>
@@ -57,8 +58,8 @@ function HeroSection() {
                     التكنولوجيا بشكل استراتيجي لضمان النجاح والنمو المستدام.
                   </p>
                   <div className="links">
-                    <a href="contact.html">طور فكرتك</a>
-                    <a href="#!">كيف نعمل</a>
+                    <Link to="/contact">طور فكرتك</Link>
+                    <Link to="#!">كيف نعمل</Link>
                   </div>
                 </div>
               </div>
@@ -82,7 +83,7 @@ function HeroSection() {
                     معك لتصميم وتنفيذ حلول فريدة تتلائم مع رؤيتك وتعزز نجاحك.
                   </p>
                   <div className="links">
-                    <a href="works.html">تواصل معنا</a>
+                    <Link href="/works">تواصل معنا</Link>
                   </div>
                 </div>
               </div>

@@ -3,6 +3,7 @@ import BlogDetails from "./routes/BlogDetails";
 import Blogs from "./routes/Blogs";
 import Contact from "./routes/Contact";
 import Home from "./routes/Home";
+import ServiceDetails from "./routes/ServiceDetails";
 import WorkDetails from "./routes/WorkDetails";
 import Works from "./routes/Works";
 
@@ -34,6 +35,10 @@ const router = [
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/services/:id",
+    element: <ServiceDetails />,
   },
 ];
 

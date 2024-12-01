@@ -93,9 +93,9 @@ function Header() {
           <button className="lang_toggler">
             English <i className="fa-light fa-globe"></i>
           </button>
-          <a href="tel:+966555555555">
+          <Link to="tel:+966555555555">
             <i className="fa-light fa-phone"></i>
-          </a>
+          </Link>
           <div className="toogler" onClick={toggleNavMenu}>
             <span></span>
             <span></span>
