@@ -2,6 +2,7 @@ import About from "./routes/About";
 import BlogDetails from "./routes/BlogDetails";
 import Blogs from "./routes/Blogs";
 import Contact from "./routes/Contact";
+import ErrorPage from "./routes/ErrorPage";
 import Home from "./routes/Home";
 import ServiceDetails from "./routes/ServiceDetails";
 import WorkDetails from "./routes/WorkDetails";
@@ -39,6 +40,10 @@ const router = [
   {
     path: "/services/:id",
     element: <ServiceDetails />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage />,
   },
 ];
 

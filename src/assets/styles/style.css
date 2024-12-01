@@ -2277,6 +2277,78 @@ button {
   width: 28px;
 }
 
+.error-section {
+  padding: 60px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-direction: column;
+  align-items: center;
+}
+.error-section img {
+  height: 300px;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 576px) {
+  .error-section img {
+    height: 230px;
+  }
+}
+.error-section h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  color: #172541;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 576px) {
+  .error-section h2 {
+    font-size: 20px;
+  }
+}
+.error-section a {
+  margin: 0 auto;
+  border: none;
+  background: none;
+  outline: none;
+  align-self: center;
+  isolation: isolate;
+  padding: 0 16px;
+  width: 166px;
+  height: 50px;
+  border: 1px solid #4c6fff;
+  color: #4c6fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+.error-section a::after {
+  position: absolute;
+  content: "";
+  height: 150px;
+  width: 0;
+  right: 10px;
+  transition: all 0.4s ease-in-out;
+  background: #172541;
+  transform: rotate(-25deg);
+  z-index: -1;
+}
+.error-section a:hover {
+  color: #fff;
+  border-color: #172541;
+}
+.error-section a:hover::after {
+  width: 110%;
+  right: -10px;
+}
+
 body {
   width: 100%;
   position: relative;
