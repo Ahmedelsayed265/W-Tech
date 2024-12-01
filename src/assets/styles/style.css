@@ -1153,7 +1153,7 @@ footer .copyrights ul a i {
 .steps .swiper-slide.swiper-slide-active .step-year {
   font-size: 18px;
 }
-.steps .swiper-slide.swiper-slide-active h3 {
+.steps .swiper-slide.swiper-slide-active h5 {
   font-size: 28px;
   font-weight: 600;
 }
@@ -1201,7 +1201,7 @@ footer .copyrights ul a i {
   margin-top: 10px;
   transition: all 0.4s ease-in-out;
 }
-.steps h3 {
+.steps h5 {
   text-align: center;
   color: #172541;
   font-size: 20px;

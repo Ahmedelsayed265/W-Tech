@@ -53,7 +53,7 @@ function Steps() {
                   <div className="image-wrapper">
                     <img src={step.icon} alt={step.description} />
                   </div>
-                  <h3>الخطوة {index + 1}</h3>
+                  <h5>الخطوة {index + 1}</h5>
                   <p className="step-description">{step.description}</p>
                 </div>
               </SwiperSlide>
