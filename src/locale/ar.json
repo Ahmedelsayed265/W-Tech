@@ -1,6 +1,9 @@
 {
-  "routes": {
-    "home": "الصفحة الرئيسية",
-    "about": "من نحن"
-  }
+  "home": "الرئيسية",
+  "ourServices": "خدماتنا",
+  "about": "من نحن",
+  "blogs": "المدونة",
+  "ourWork": "أعمالنا",
+  "contactUs": "إتصل بنا",
+  "companyFile": "ملف الشركة"
 }

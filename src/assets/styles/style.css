@@ -21,7 +21,6 @@
   margin: 0;
   padding: 0;
   line-height: 32px;
-  direction: rtl;
   box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
@@ -2544,6 +2543,7 @@ body {
   position: relative;
   overflow-x: hidden;
   background: #fff;
+  direction: rtl;
 }
 body #root {
   min-height: 100dvh;
@@ -2552,6 +2552,17 @@ body #root {
 body main {
   width: 100%;
   position: relative;
+}
+body.en {
+  direction: ltr;
+}
+body.en .header .container .nav-links .navigations .nav-link a::after {
+  right: initial;
+  left: -16px;
+}
+body.en .header .container .nav-links .navigations .nav-link a i {
+  margin-right: initial;
+  margin-left: 4px;
 }
 
 .fancybox__container {

@@ -1,6 +1,9 @@
 {
-  "routes": {
-    "home": "Home",
-    "about": "About"
-  }
+  "home": "Home",
+  "ourServices": "Our Services",
+  "about": "About Us",
+  "blogs": "Blogs",
+  "ourWork": "Our Works",
+  "contactUs": "Contact Us",
+  "companyFile": "Company File"
 }

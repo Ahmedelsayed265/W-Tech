@@ -1,9 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import useGetServices from "../../hooks/app/useGetServices";
 
 function Header() {
   const [showNavMenu, setShowNavMenu] = useState(false);
+  const { t } = useTranslation();
+  const { data: services } = useGetServices();
+
+  console.log(services);
+  
 
   const toggleNavMenu = () => {
     setShowNavMenu(!showNavMenu);
@@ -25,6 +33,19 @@ function Header() {
     };
   });
 
+  const handleLang = () => {
+    const currentLang = i18next.language;
+    const bodyElement = document.querySelector("body");
+
+    if (currentLang === "en") {
+      i18next.changeLanguage("ar");
+      bodyElement.classList.remove("en");
+    } else {
+      i18next.changeLanguage("en");
+      bodyElement.classList.add("en");
+    }
+  };
+
   return (
     <nav className="header">
       <div className="container d-flex">
@@ -36,7 +57,7 @@ function Header() {
         <div className={`nav-links ${showNavMenu ? "show" : ""}`}>
           <ul className="navigations">
             <li className="nav-link active">
-              <NavLink to="/">الرئيسية</NavLink>
+              <NavLink to="/">{t("home")}</NavLink>
             </li>
             <li className="nav-link">
               <Dropdown>
@@ -45,57 +66,48 @@ function Header() {
                   id="dropdownMenuButton1"
                   className="btn nav-link"
                 >
-                  خدماتنا <i className="fa-regular fa-angle-down"></i>
+                  {t("ourServices")}
+                  <i className="fa-regular fa-angle-down"></i>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item as="a" href="/services/1">
-                    خدمات التسويق
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    تصميم جرافيك
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    تصميم مواقع
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    خدمات السوشيال ميديا
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    خدمات الموشن جرافيك
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    خدمات السيو
-                  </Dropdown.Item>
-                  <Dropdown.Item as="a" href="/services/1">
-                    تطبيقات الجوال
-                  </Dropdown.Item>
+                  {services?.map((service) => (
+                    <Dropdown.Item
+                      key={service?.id}
+                      as="a"
+                      href={`/services/${service.id}`}
+                    >
+                      {service.title}
+                    </Dropdown.Item>
+                  ))}
                 </Dropdown.Menu>
               </Dropdown>
             </li>
             <li className="nav-link">
-              <NavLink to="/about">من نحن</NavLink>
+              <NavLink to="/about">{t("about")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/blogs">المدونة</NavLink>
+              <NavLink to="/blogs">{t("blogs")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/works">أعمالنا</NavLink>
+              <NavLink to="/works">{t("ourWork")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/contact">إتصل بنا</NavLink>
+              <NavLink to="/contact">{t("contactUs")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/company-profile">ملف الشركة</NavLink>
+              <NavLink to="/company-profile">{t("companyFile")}</NavLink>
             </li>
           </ul>
         </div>
         <div className="btns">
-          <button className="lang_toggler">
+          <button className="lang_toggler" onClick={handleLang}>
             English <i className="fa-light fa-globe"></i>
           </button>
+
           <Link to="tel:+966555555555">
             <i className="fa-light fa-phone"></i>
           </Link>
+
           <div className="toogler" onClick={toggleNavMenu}>
             <span></span>
             <span></span>

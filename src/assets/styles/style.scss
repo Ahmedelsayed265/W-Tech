@@ -14,6 +14,7 @@ body {
   position: relative;
   overflow-x: hidden;
   background: #fff;
+  direction: rtl;
 
   #root {
     min-height: 100dvh;
@@ -23,6 +24,17 @@ body {
   main {
     width: 100%;
     position: relative;
+  }
+  &.en {
+    direction: ltr;
+    .header .container .nav-links .navigations .nav-link a::after {
+      right: initial;
+      left: -16px;
+    }
+    .header .container .nav-links .navigations .nav-link a i {
+      margin-right: initial;
+      margin-left: 4px;
+    }
   }
 }
 .fancybox__container {
