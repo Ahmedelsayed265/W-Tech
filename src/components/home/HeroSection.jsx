@@ -1,12 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
+import i18next from "i18next";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
-import { Link } from "react-router-dom";
 
 function HeroSection() {
+  const lang = i18next.language;
+
   return (
     <section className="hero-section">
       <div className="container">
@@ -17,6 +20,9 @@ function HeroSection() {
           modules={[EffectFade, Autoplay]}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           className="hero-swiper"
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          rtl={lang === "ar"}
+          key={lang}
         >
           <SwiperSlide>
             <div className="row">
