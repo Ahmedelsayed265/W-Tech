@@ -35,6 +35,21 @@ body {
       margin-right: initial;
       margin-left: 4px;
     }
+    .potential .lista p img {
+      transform: scale(1);
+    }
+    .blog a .date {
+      left: initial;
+      right: 16px;
+    }
+    .steps .swiper-button-next {
+      left: initial;
+      right: 16px;
+    }
+    .steps .swiper-button-prev {
+      right: initial;
+      left: 16px;
+    }
   }
 }
 .fancybox__container {

@@ -1,8 +1,36 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import SectionHeader from "../ui/layout/SectionHeader";
 import { dehighlight, highlight } from "../utils/helpers";
+import SectionHeader from "../ui/layout/SectionHeader";
+import useGetServices from "../hooks/app/useGetServices";
+import axiosInstance from "../utils/axiosInstance";
+import { toast } from "react-toastify";
 
 function Contact() {
+  const { data: services } = useGetServices();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    service_id: "",
+    type: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await axiosInstance.post("/send_contact_us", formData);
+      if (res.data.code === 200) {
+        toast.success("تم إرسال الرسالة بنجاح");
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <SectionHeader title={"تواصل معنا"} />
@@ -52,9 +80,8 @@ function Contact() {
                 </div>
               </div>
               <div className="col-lg-8 col-12">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                   <div className="form-group">
-                    {/* field-set */}
                     <div className="inputfield">
                       <label htmlFor="name">
                         <i className="fa-light fa-user"></i> اسمك كاملاً
@@ -63,29 +90,16 @@ function Contact() {
                         type="text"
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         onFocus={(e) => highlight(e)}
                         onBlur={(e) => dehighlight(e)}
                       />
                       <span className="highlight"></span>
                     </div>
-                    {/* field-set */}
-                    <div className="inputfield">
-                      <label htmlFor="email">
-                        <i className="fa-light fa-envelope"></i> البريد
-                        الالكترونى
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        onFocus={(e) => highlight(e)}
-                        onBlur={(e) => dehighlight(e)}
-                      />
-                      <span className="highlight"></span>
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    {/* field-set */}
+
                     <div className="inputfield">
                       <label htmlFor="phone">
                         <i className="fa-light fa-phone"></i> رقم الجوال
@@ -94,43 +108,70 @@ function Contact() {
                         type="tel"
                         id="phone"
                         name="phone"
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
                         onFocus={(e) => highlight(e)}
                         onBlur={(e) => dehighlight(e)}
                       />
                       <span className="highlight"></span>
                     </div>
+                  </div>
+
+                  <div className="form-group">
                     {/* field-set */}
                     <div className="inputfield">
                       <label htmlFor="service">
-                        <i className="fa-sharp fa-light fa-pen-nib"></i>
-                        الخدمة
+                        <i className="fa-sharp fa-light fa-pen-nib"></i> الخدمة
                       </label>
                       <select
                         name="service"
                         id="service"
+                        value={formData.service_id}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            service_id: e.target.value,
+                          })
+                        }
                         onFocus={(e) => highlight(e)}
                         onBlur={(e) => dehighlight(e)}
                       >
-                        <option value="" disabled selected></option>
-                        <option value="تصميم مواقع">تصميم مواقع</option>
-                        <option value="تصميم جرافيك">تصميم جرافيك</option>
-                        <option value="خدمات التسويق">خدمات التسويق</option>
-                        <option value="إدارة صفحات السوشيال ميديا">
-                          إدارة صفحات السوشيال ميديا
-                        </option>
-                        <option value="خدمات الموشن جرافيك">
-                          خدمات الموشن جرافيك
-                        </option>
-                        <option value="خدمات السيو">خدمات السيو</option>
-                        <option value="تطوير تطبيقات الجوال">
-                          تطوير تطبيقات الجوال
-                        </option>
+                        <option value="" disabled></option>
+                        {services?.map((service) => (
+                          <option value={service.title} key={service.id}>
+                            {service.title}
+                          </option>
+                        ))}
+                      </select>
+                      <span className="highlight"></span>
+                    </div>
+
+                    <div className="inputfield">
+                      <label htmlFor="type">
+                        <i className="fa-sharp fa-light fa-pen-nib"></i> نوع
+                        التواصل
+                      </label>
+                      <select
+                        name="type"
+                        id="type"
+                        value={formData.type}
+                        onChange={(e) =>
+                          setFormData({ ...formData, type: e.target.value })
+                        }
+                        onFocus={(e) => highlight(e)}
+                        onBlur={(e) => dehighlight(e)}
+                      >
+                        <option value="" disabled></option>
+                        <option value="call">تواصل عبر الهاتف</option>
+                        <option value="whatsapp">تواصل عبر واتساب</option>
                       </select>
                       <span className="highlight"></span>
                     </div>
                   </div>
+
                   <div className="form-group">
-                    {/* field-set */}
                     <div className="inputfield">
                       <label htmlFor="message" className="message-label">
                         <i className="fa-light fa-feather-pointed"></i> رسالتك
@@ -144,8 +185,19 @@ function Contact() {
                       <span className="highlight"></span>
                     </div>
                   </div>
-                  <button type="submit">
-                    إرسال <i className="fa-sharp fa-light fa-paper-plane"></i>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    style={{ opacity: loading ? 0.7 : 1 }}
+                  >
+                    {loading ? (
+                      <i className="fa-solid fa-spinner fa-spin"></i>
+                    ) : (
+                      <>
+                        إرسال{" "}
+                        <i className="fa-sharp fa-light fa-paper-plane"></i>
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

@@ -10,9 +10,6 @@ function Header() {
   const { t } = useTranslation();
   const { data: services } = useGetServices();
 
-  console.log(services);
-  
-
   const toggleNavMenu = () => {
     setShowNavMenu(!showNavMenu);
   };
@@ -40,9 +37,11 @@ function Header() {
     if (currentLang === "en") {
       i18next.changeLanguage("ar");
       bodyElement.classList.remove("en");
+      sessionStorage.setItem("lang", "ar");
     } else {
       i18next.changeLanguage("en");
       bodyElement.classList.add("en");
+      sessionStorage.setItem("lang", "en");
     }
   };
 
@@ -86,7 +85,7 @@ function Header() {
               <NavLink to="/about">{t("about")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/blogs">{t("blogs")}</NavLink>
+              <NavLink to="/blogs">{t("blogs.title")}</NavLink>
             </li>
             <li className="nav-link">
               <NavLink to="/works">{t("ourWork")}</NavLink>

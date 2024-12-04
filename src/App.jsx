@@ -18,9 +18,12 @@ function App() {
   const language = i18next.language;
 
   useEffect(() => {
-    sessionStorage.setItem("lang", language);
     const body = document.querySelector("body");
-    language === "ar" ? body.classList.remove("en") : body.classList.add("en");
+    if (language === "ar") {
+      body.classList.remove("en");
+    } else {
+      body.classList.add("en");
+    }
     i18n.changeLanguage(language);
   }, [language]);
 

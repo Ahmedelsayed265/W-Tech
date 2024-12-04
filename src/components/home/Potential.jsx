@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function Potential() {
-  // Initialize Fancybox on mount
+  const { t } = useTranslation();
+
   useEffect(() => {
     Fancybox.bind("[data-fancybox]", {});
   }, []);
@@ -14,39 +16,33 @@ function Potential() {
         <div className="row">
           <div className="col-lg-6 col-12 mb-lg-0 mb-4">
             <h2 data-aos="fade-up">
-              أطلق العنان لإمكانيات عملك مع <span>وصف الإبتكار</span>.
+              {t("unleash_potential", { innovation: t("innovation") })}
             </h2>
-            <p data-aos="fade-up">
-              اكتشف القوة التحويلية للحلول البرمجية المبتكرة المصممة خصيصًا
-              لتلبية احتياجات عملك الفريدة. يلتزم فريقنا المتخصص من الخبراء في
-              الابداع المتكامل لتقنية المعلومات بإطلاق العنان للإمكانات الحقيقية
-              لأعمالك. اكتشف مستقبل تحسين الأعمال من خلال خدماتنا البرمجية
-              الشاملة.
-            </p>
-            <div className=" lista">
+            <p data-aos="fade-up">{t("discover_power")}</p>
+            <div className="lista">
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                الابتكار
+                {t("innovation")}
               </p>
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                الجوة
+                {t("quality")}
               </p>
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                التعاون
+                {t("collaboration")}
               </p>
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                التمحور حول العملاء
+                {t("customer_focus")}
               </p>
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                النزاهة
+                {t("integrity")}
               </p>
               <p data-aos="fade-up">
                 <img src="/about-feature-vec.svg" alt="icon" />
-                السرعة
+                {t("speed")}
               </p>
             </div>
           </div>

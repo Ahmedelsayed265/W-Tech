@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -9,6 +10,7 @@ import "swiper/css/effect-fade";
 
 function HeroSection() {
   const lang = i18next.language;
+  const { t } = useTranslation();
 
   return (
     <section className="hero-section">
@@ -18,7 +20,7 @@ function HeroSection() {
           speed={1000}
           loop={true}
           modules={[EffectFade, Autoplay]}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 9000, disableOnInteraction: false }}
           className="hero-swiper"
           dir={lang === "ar" ? "rtl" : "ltr"}
           rtl={lang === "ar"}
@@ -34,14 +36,11 @@ function HeroSection() {
               <div className="col-md-6 p-2">
                 <div className="hero-description">
                   <h1>
-                    ثورة في تصميم وتطوير الأعمال <span>بأحدث التقنييات</span>
+                    {t("slider.title1")} <span>{t("slider.hint1")}</span>
                   </h1>
-                  <p>
-                    استفد من إمكانيات شركتك من خلال تصميم مبتكر وتطوير حديث. قم
-                    بتحسين أداء أعمالك في عالم الرقمي.
-                  </p>
+                  <p>{t("slider.text1")}</p>
                   <div className="links">
-                    <Link to="/works">عرض المشاريع</Link>
+                    <Link to="/works">{t("works")}</Link>
                   </div>
                 </div>
               </div>
@@ -57,15 +56,12 @@ function HeroSection() {
               <div className="col-md-6 p-2">
                 <div className="hero-description">
                   <h1>
-                    حلول متقدمة لدفع نمو مستدام <span>لتجارتك ومشاريعك</span>
+                    {t("slider.title2")} <span>{t("slider.hint2")}</span>
                   </h1>
-                  <p>
-                    استكشف نهجنا الشامل للشركات الصغيرة والكبيرة. ندمج
-                    التكنولوجيا بشكل استراتيجي لضمان النجاح والنمو المستدام.
-                  </p>
+                  <p>{t("slider.text2")}</p>
                   <div className="links">
-                    <Link to="/contact">طور فكرتك</Link>
-                    <Link to="#!">كيف نعمل</Link>
+                    <Link to="/contact">{t("develop")}</Link>
+                    <Link to="/about">{t("howWeWork")}</Link>
                   </div>
                 </div>
               </div>
@@ -81,15 +77,11 @@ function HeroSection() {
               <div className="col-md-6 p-2">
                 <div className="hero-description">
                   <h1>
-                    انضم إلينا في صياغة مستقبل <span>شركتك ونجاحك.</span>
+                    {t("slider.title3")} <span>{t("slider.hint3")}</span>
                   </h1>
-                  <p>
-                    اكتشف الإبداع والتكنولوجيا معًا، حيث نقوم بتحويل أفكارك إلى
-                    حقيقة رقمية. في شركة الابداع المتكامل، نعمل جنبًا إلى جنب
-                    معك لتصميم وتنفيذ حلول فريدة تتلائم مع رؤيتك وتعزز نجاحك.
-                  </p>
+                  <p>{t("slider.text3")}</p>
                   <div className="links">
-                    <Link href="/works">تواصل معنا</Link>
+                    <Link to="/contact">{t("contactUs")}</Link>
                   </div>
                 </div>
               </div>

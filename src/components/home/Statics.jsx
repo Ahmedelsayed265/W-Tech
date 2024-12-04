@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import CountUp from "react-countup";
 
 function Statics() {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const [startCount, setStartCount] = useState(false);
 
@@ -43,9 +45,9 @@ function Statics() {
                 <span className="num" data-goal="3">
                   {startCount && <CountUp duration={3} start={0} end={5} />}
                 </span>
-                سنوات الخبرة
+                {t("years_of_experience")}
               </h2>
-              <p>عمل بشغف</p>
+              <p>{t("work_with_passion")}</p>
             </div>
           </div>
           <div className="col-lg-3 col-6 mb-lg-0 mb-3">
@@ -57,9 +59,9 @@ function Statics() {
                 <span className="num" data-goal="20">
                   {startCount && <CountUp duration={3} start={0} end={200} />}
                 </span>
-                عميل
+                {t("clients")}
               </h2>
-              <p>عملائنا</p>
+              <p>{t("our_clients")}</p>
             </div>
           </div>
           <div className="col-lg-3 col-6">
@@ -71,9 +73,9 @@ function Statics() {
                 <span className="num" data-goal="50">
                   {startCount && <CountUp duration={3} start={0} end={220} />}
                 </span>
-                مشروع
+                {t("projects")}
               </h2>
-              <p>مشاريع مكتملة ناجحة</p>
+              <p>{t("successful_completed_projects")}</p>
             </div>
           </div>
           <div className="col-lg-3 col-6">
@@ -85,9 +87,9 @@ function Statics() {
                 <span className="num" data-goal="25">
                   {startCount && <CountUp duration={3} start={0} end={24} />}
                 </span>
-                مطور
+                {t("developers")}
               </h2>
-              <p>فريق من المتخصصين</p>
+              <p>{t("team_of_specialists")}</p>
             </div>
           </div>
         </div>

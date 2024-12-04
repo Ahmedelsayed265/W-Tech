@@ -1,20 +1,56 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-// import "swiper/css/effect-fade";
+import i18next from "i18next";
 
 function Steps() {
+  const { t } = useTranslation();
+  const lang = i18next.language;
+
   const timelineSteps = [
-    { description: "فكرة المشروع", icon: "/idea-generation.webp" },
-    { description: "العرض الفني", icon: "/technical-proposal.webp" },
-    { description: "تخطيط وتصميم", icon: "/planning-design.webp" },
-    { description: "بدء التطوير", icon: "/development.webp" },
-    { description: "اختبار وضمان الجودة", icon: "/testing-QA.png" },
-    { description: "النشر", icon: "/deployment.webp" },
-    { description: "الصيانة والتحديثات", icon: "/maintenance-updates.webp" },
-    { description: "الانتهاء والتسليم", icon: "/finishing-delivery.webp" },
+    {
+      title: t("steps.sparkOfInnovation"),
+      description: t("steps.ideaGeneration"),
+      icon: "/idea-generation.webp",
+    },
+    {
+      title: t("steps.blueprintForSuccess"),
+      description: t("steps.technicalProposal"),
+      icon: "/technical-proposal.webp",
+    },
+    {
+      title: t("steps.architectingDreams"),
+      description: t("steps.planningDesign"),
+      icon: "/planning-design.webp",
+    },
+    {
+      title: t("steps.bringingToLife"),
+      description: t("steps.developmentStart"),
+      icon: "/development.webp",
+    },
+    {
+      title: t("steps.qualityGuarantee"),
+      description: t("steps.testingQA"),
+      icon: "/testing-QA.png",
+    },
+    {
+      title: t("steps.launchingSuccess"),
+      description: t("steps.deployment"),
+      icon: "/deployment.webp",
+    },
+    {
+      title: t("steps.continuousExcellence"),
+      description: t("steps.maintenanceUpdates"),
+      icon: "/maintenance-updates.webp",
+    },
+    {
+      title: t("steps.missionAccomplished"),
+      description: t("steps.finishingDelivery"),
+      icon: "/finishing-delivery.webp",
+    },
   ];
 
   return (
@@ -26,10 +62,9 @@ function Steps() {
         <span className="strip3">
           <img src="/Rect.png" alt="" />
         </span>
-        <h3 data-aos="fade-up">خطوات العمل</h3>
+        <h3 data-aos="fade-up">{t("steps.title")}</h3>
         <p data-aos="fade-up" className="sub-title">
-          نحن نرسم خطوات تطوير البرمجيات الخاصة بك بعناية فائقة، من الفكرة وحتى
-          تحقيق النجاح الكامل.
+          {t("steps.subtitle")}
         </p>
       </div>
       <div className="row">
@@ -45,6 +80,9 @@ function Steps() {
             pagination={{
               type: "fraction",
             }}
+            dir={lang === "ar" ? "rtl" : "ltr"}
+            rtl={lang === "ar"}
+            key={lang}
             className="steps-swiper"
           >
             {timelineSteps.map((step, index) => (
@@ -53,7 +91,7 @@ function Steps() {
                   <div className="image-wrapper">
                     <img src={step.icon} alt={step.description} />
                   </div>
-                  <h5>الخطوة {index + 1}</h5>
+                  <h5>{step.title}</h5>
                   <p className="step-description">{step.description}</p>
                 </div>
               </SwiperSlide>

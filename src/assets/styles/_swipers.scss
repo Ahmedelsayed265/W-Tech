@@ -76,11 +76,10 @@
     .links {
       display: flex;
       gap: 16px;
-      // margin-top: auto;
       a {
         padding: 12px 32px;
         font-weight: 500;
-        border-radius: 4px;
+        border-radius: 12px;
         transition: $transation;
         &:nth-child(1) {
           background: $second;

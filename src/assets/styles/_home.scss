@@ -291,6 +291,9 @@
       background-color: $second;
       z-index: 20;
     }
+    p {
+      animation: none !important;
+    }
 
     &.swiper-slide-active {
       .step {
@@ -313,7 +316,7 @@
         font-weight: 600;
       }
       .step-description {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 500;
         color: $text-color;
       }
@@ -327,7 +330,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
     filter: grayscale(1);
     opacity: 0.5;
     transition: $transation;
@@ -367,7 +369,7 @@
     text-align: center;
     color: $main-color;
     font-size: 20px;
-    margin: 0;
+    margin: 12px 0 0;
     transition: $transation;
   }
 
@@ -375,7 +377,6 @@
     font-size: 12px;
     margin-top: 5px;
     color: #777;
-    transition: $transation;
   }
 }
 .services {
@@ -538,7 +539,7 @@
     }
   }
   h4 {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 600;
     margin-top: 32px;
@@ -547,6 +548,15 @@
       color: $main-color;
       line-height: inherit;
     }
+  }
+  p {
+    font-size: 12px;
+    color: $text-color;
+    line-height: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   .read_more {
     background: $second;
