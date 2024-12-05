@@ -35,7 +35,7 @@ function Header() {
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 1) {
         headerRef.current.classList.add("sticky");
       } else {
         headerRef.current.classList.remove("sticky");

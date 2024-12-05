@@ -37,6 +37,7 @@ function Contact() {
 
   return (
     <>
+      <div className="header-bg"></div>
       <SectionHeader title={t("contact.title")} />
       <section className="contact">
         <div className="container">

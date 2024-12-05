@@ -13,6 +13,9 @@
       padding: 24px;
       display: flex;
       height: auto;
+      min-height: 100dvh;
+      padding-top: 100px;
+      align-items: center;
       @media (min-width: 768px) {
         .row {
           flex-direction: row-reverse;

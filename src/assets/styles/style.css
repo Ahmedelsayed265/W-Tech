@@ -138,15 +138,21 @@ a {
     transform: rotate(0deg);
   }
 }
+.header-bg {
+  width: 100%;
+  height: 80px;
+  background: #0f68b6;
+}
+
 .header {
   width: 100%;
   height: 80px;
-  position: sticky;
+  position: fixed;
   z-index: 9998;
   top: 0;
-  background: #fff;
+  background: transparent;
   left: 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out !important;
 }
 .header .container {
   height: 80px;
@@ -162,6 +168,9 @@ a {
 }
 .header .container .logo a img {
   height: 56px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: brightness(0) invert(1);
 }
 .header .container .nav-links {
   flex: 3;
@@ -184,8 +193,7 @@ a {
 }
 .header .container .nav-links .navigations .nav-link a {
   padding: 0 !important;
-  color: #172541 !important;
-  color: #172541;
+  color: #fff;
   font-weight: 600;
   font-size: 12px;
   position: relative;
@@ -197,7 +205,7 @@ a {
   transition: all 0.4s ease-in-out;
   width: 6px;
   height: 6px;
-  border: 1px solid #172541;
+  border: 1px solid #fff;
   right: -16px;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
@@ -207,11 +215,11 @@ a {
   margin-right: 4px;
 }
 .header .container .nav-links .navigations .nav-link a.active {
-  color: #174a8b;
+  color: #fff;
 }
 .header .container .nav-links .navigations .nav-link a.active::after {
-  border-color: #174a8b;
-  background: #174a8b;
+  border-color: #fff;
+  background: #fff;
 }
 .header .container .nav-links .navigations .nav-link a:hover {
   color: #174a8b;
@@ -229,6 +237,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  color: #000 !important;
 }
 .header .container .nav-links .navigations .nav-link .dropdown-menu a::after {
   content: none !important;
@@ -246,7 +255,7 @@ a {
   .header .container .nav-links {
     position: fixed;
     top: 80px;
-    background: white;
+    background: #0f68b6;
     transition: all 0.4s ease-in-out;
     right: -100%;
     width: min(100% - 16px, 300px);
@@ -289,6 +298,7 @@ a {
   .header .container .nav-links .navigations .dropdown-menu a {
     width: 100%;
     display: block;
+    color: #000 !important;
   }
 }
 .header .container .btns {
@@ -301,7 +311,7 @@ a {
   gap: 16px;
 }
 .header .container .btns a {
-  color: #172541;
+  color: #fff;
   font-size: 16px;
 }
 .header .container .btns .lang_toggler {
@@ -313,7 +323,7 @@ a {
   justify-content: center;
   gap: 4px;
   font-size: 14px;
-  color: #172541;
+  color: #fff;
 }
 .header .container .btns .lang_toggler i {
   font-size: 16px;
@@ -329,7 +339,7 @@ a {
 .header .container .btns .toogler span {
   width: 20px;
   height: 2px;
-  background: #172541;
+  background: #fff;
   display: block;
   transition: all 0.4s ease-in-out;
 }
@@ -356,7 +366,7 @@ a {
   filter: brightness(0) invert(1);
 }
 .header.sticky .container .nav-links .navigations .nav-link a {
-  color: #fff !important;
+  color: #fff;
 }
 .header.sticky .container .nav-links .navigations .nav-link a::after {
   border-color: #ffffff;
@@ -696,6 +706,9 @@ footer .copyrights ul a i {
   padding: 24px;
   display: flex;
   height: auto;
+  min-height: 100dvh;
+  padding-top: 100px;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .hero-section .hero-swiper .swiper-slide .row {
