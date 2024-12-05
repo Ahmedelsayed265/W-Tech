@@ -25,6 +25,9 @@ body {
     width: 100%;
     position: relative;
   }
+  .nav-pills {
+    border: 0 !important;
+  }
   &.en {
     direction: ltr;
     .header .container .nav-links .navigations .nav-link a::after {
@@ -49,6 +52,38 @@ body {
     .steps .swiper-button-prev {
       right: initial;
       left: 16px;
+    }
+    .newsletter form input {
+      border-radius: 4px 0 0 4px;
+      direction: ltr;
+    }
+    .newsletter form button {
+      border-radius: 0 4px 4px 0;
+    }
+    .accordion-button::after {
+      margin-left: auto !important;
+      margin-right: initial !important;
+    }
+    input,
+    textarea,
+    select {
+      direction: ltr !important;
+    }
+    .contact form .form-group .inputfield label {
+      left: 32px;
+      right: initial;
+    }
+    .floatForm .formDiv form .inputfield label {
+      left: 4px;
+      right: initial;
+    }
+    .about-wrap .about-text h2 {
+      padding-left: 48px;
+      padding-right: initial;
+      &::after {
+        left: 0;
+        right: initial;
+      }
     }
   }
 }

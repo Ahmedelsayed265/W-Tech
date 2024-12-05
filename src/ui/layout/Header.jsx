@@ -3,7 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
-import useGetServices from "../../hooks/app/useGetServices";
+import useGetServices from "../../hooks/useGetServices";
 
 function Header() {
   const [showNavMenu, setShowNavMenu] = useState(false);

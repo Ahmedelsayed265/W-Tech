@@ -1,4 +1,4 @@
-import useGetServices from "../../hooks/app/useGetServices";
+import useGetServices from "../../hooks/useGetServices";
 import { useTranslation } from "react-i18next";
 
 function Services() {

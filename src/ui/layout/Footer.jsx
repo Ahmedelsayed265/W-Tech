@@ -1,15 +1,51 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { dehighlight, handleChange, highlight } from "../../utils/helpers";
+import { toast } from "react-toastify";
+import { dehighlight, highlight } from "../../utils/helpers";
+import { useTranslation } from "react-i18next";
+import useGetServices from "../../hooks/useGetServices";
+import axiosInstance from "../../utils/axiosInstance";
 
 function Footer() {
+  const { t } = useTranslation();
   const [openForm, setOpenForm] = useState(false);
+  const { data: services } = useGetServices();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    contactType: "",
-    service: "",
+    service_id: "",
+    type: "",
   });
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        setOpenForm(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await axiosInstance.post("/send_contact_us", formData);
+      if (res.data.code === 200) {
+        toast.success(t("footer.form.success"));
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const toggleForm = () => {
     setOpenForm(!openForm);
@@ -23,30 +59,28 @@ function Footer() {
             <div className="logo">
               <img src="/logo.svg" alt="" />
             </div>
-            <p className="about">
-              احدى شركات المؤسسة العالمية الحديثة للإتصالات وتقنية المعلومات
-            </p>
+            <p className="about">{t("footer.about")}</p>
           </div>
           <div className="col-lg-4 col-md-6 col-12 column">
             <div className="title">
-              <h2>روابط مفيدة</h2>
+              <h2>{t("footer.useful_links")}</h2>
             </div>
             <ul>
               <li>
-                <Link to="/about">من نحن</Link>
+                <Link to="/about">{t("footer.about_us")}</Link>
               </li>
               <li>
-                <Link to="/blogs">المدونة و الاخبار</Link>
+                <Link to="/blogs">{t("footer.blog_news")}</Link>
               </li>
               <li>
-                <Link to="/contact">إتصل بنا</Link>
+                <Link to="/contact">{t("footer.contact_us")}</Link>
               </li>
               <li>
-                <Link to="/terms">سياسة الخصوصية</Link>
+                <Link to="/terms">{t("footer.privacy_policy")}</Link>
               </li>
               <li>
                 <Link to="/recovery-replacement">
-                  سياسة الأستبدال و الأسترجاع
+                  {t("footer.return_policy")}
                 </Link>
               </li>
             </ul>
@@ -75,9 +109,7 @@ function Footer() {
             </ul>
           </div>
           <div className="col-12 copyrights">
-            <p>
-              حقوق الطبع والنشر © 2023 جميع الحقوق محفوظة لشركة وصف الإبتكار.
-            </p>
+            <p>{t("footer.copyright")}</p>
             <ul className="social-media">
               <li>
                 <Link to="#">
@@ -105,17 +137,22 @@ function Footer() {
       </div>
 
       <div className="floatForm">
-        <div className={`formDiv ${openForm ? "active" : ""}`}>
+        <div className={`formDiv ${openForm ? "active" : ""}`} ref={formRef}>
           <img src="/fav.svg" className="logo" alt="" />
-          <form action="">
+          <form onSubmit={handleSubmit}>
             <div className="inputfield">
-              <label htmlFor="name"> اسمك كاملاً</label>
+              <label htmlFor="name">
+                <i className="fa-light fa-user"></i>{" "}
+                {t("footer.form.full_name")}
+              </label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 value={formData.name}
-                onChange={(e) => handleChange(e, setFormData)}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 onFocus={(e) => highlight(e)}
                 onBlur={(e) => dehighlight(e)}
               />
@@ -123,13 +160,17 @@ function Footer() {
             </div>
 
             <div className="inputfield">
-              <label htmlFor="phone"> رقم الجوال </label>
+              <label htmlFor="phone">
+                <i className="fa-light fa-phone"></i> {t("footer.form.phone")}
+              </label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
-                onChange={(e) => handleChange(e, setFormData)}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone: e.target.value })
+                }
                 onFocus={(e) => highlight(e)}
                 onBlur={(e) => dehighlight(e)}
               />
@@ -137,50 +178,72 @@ function Footer() {
             </div>
 
             <div className="inputfield">
-              <label htmlFor="contactType"> نوع التواصل </label>
+              <label htmlFor="type">
+                <i className="fa-sharp fa-light fa-pen-nib"></i>{" "}
+                {t("footer.form.contact_type")}
+              </label>
               <select
-                name="contactType"
-                id="contactType"
-                value={formData.contactType}
-                onChange={(e) => handleChange(e, setFormData)}
+                name="type"
+                id="type"
+                value={formData.type}
+                onChange={(e) =>
+                  setFormData({ ...formData, type: e.target.value })
+                }
                 onFocus={(e) => highlight(e)}
                 onBlur={(e) => dehighlight(e)}
               >
-                <option value="" disabled selected></option>
-                <option value=""> اتصال </option>
-                <option value=""> واتساب </option>
+                <option value="" disabled></option>
+                <option value="call">
+                  {t("footer.form.contact_by_phone")}
+                </option>
+                <option value="whatsapp">
+                  {t("footer.form.contact_by_whatsapp")}
+                </option>
               </select>
               <span className="highlight"></span>
             </div>
 
             <div className="inputfield">
-              <label htmlFor="service"> الخدمة</label>
+              <label htmlFor="service">
+                <i className="fa-sharp fa-light fa-pen-nib"></i>{" "}
+                {t("footer.form.service")}
+              </label>
               <select
                 name="service"
                 id="service"
-                value={formData.service}
-                onChange={(e) => handleChange(e, setFormData)}
+                value={formData.service_id}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    service_id: e.target.value,
+                  })
+                }
                 onFocus={(e) => highlight(e)}
                 onBlur={(e) => dehighlight(e)}
               >
-                <option value="" disabled selected></option>
-                <option value="تصميم مواقع">تصميم مواقع</option>
-                <option value="تصميم جرافيك">تصميم جرافيك</option>
-                <option value="خدمات التسويق">خدمات التسويق</option>
-                <option value="إدارة صفحات السوشيال ميديا">
-                  إدارة صفحات السوشيال ميديا
-                </option>
-                <option value="خدمات الموشن جرافيك">خدمات الموشن جرافيك</option>
-                <option value="خدمات السيو">خدمات السيو</option>
-                <option value="تطوير تطبيقات الجوال">
-                  تطوير تطبيقات الجوال
-                </option>
+                <option value="" disabled></option>
+                {services?.map((service) => (
+                  <option value={service.title} key={service.id}>
+                    {service.title}
+                  </option>
+                ))}
               </select>
               <span className="highlight"></span>
             </div>
 
-            <button type="submit">
-              إرسال <i className="fa-sharp fa-light fa-paper-plane"></i>
+            <button
+              type="submit"
+              disabled={loading}
+              style={{ opacity: loading ? 0.7 : 1 }}
+            >
+              {loading ? (
+                <i className="fa-solid fa-spinner fa-spin"></i>
+              ) : (
+                <>
+                  {t("footer.form.send")}{" "}
+                  <i className="fa-sharp fa-light fa-paper-plane"></i>
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -197,19 +260,3 @@ function Footer() {
 }
 
 export default Footer;
-
-{
-  /* 
-          
-
-            
-
-            
-
-            
-            
-          </form>
-        </div>
-        
-      </div> */
-}

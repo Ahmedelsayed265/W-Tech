@@ -70,5 +70,63 @@
     "feature1": "We Create",
     "feature2": "We Innovate",
     "feature3": "We Excel"
+  },
+  "faqs": {
+    "title": "FAQs",
+    "subtitle": "If you have any other questions, please do not hesitate to contact us"
+  },
+  "newsletter": {
+    "title": "Get the latest news and information in the digital marketing world",
+    "emailPlaceholder": "Your Email",
+    "subscribe": "Subscribe"
+  },
+  "footer": {
+    "about": "One of the modern global foundation companies for communications and information technology",
+    "useful_links": "Useful Links",
+    "about_us": "About Us",
+    "blog_news": "Blog & News",
+    "contact_us": "Contact Us",
+    "privacy_policy": "Privacy Policy",
+    "return_policy": "Return & Replacement Policy",
+    "copyright": "Copyright © 2023 All rights reserved to Wasf Al-Ibtikar Company.",
+    "form": {
+      "full_name": "Full Name",
+      "phone": "Phone Number",
+      "contact_type": "Contact Type",
+      "contact_by_phone": "Contact by Phone",
+      "contact_by_whatsapp": "Contact by WhatsApp",
+      "service": "Service",
+      "send": "Send",
+      "success": "Message sent successfully"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Choose from Wasf Al-Ibtikar's design and marketing service packages, and get the service that shows you in the best way that resonates with your audience and distinguishes you from your competitors",
+    "location": {
+      "label": "Our Location: ",
+      "value": "Jeddah, Kingdom of Saudi Arabia"
+    },
+    "email": {
+      "label": "Email: ",
+      "value": "info@icit-sa.com"
+    },
+    "phone": {
+      "label": "Phone: ",
+      "value": "+966564741999"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "mobile": "Mobile Number",
+      "service": "Service",
+      "contactType": "Contact Type",
+      "message": "Your Message",
+      "submit": "Send",
+      "contactOptions": {
+        "call": "Contact via Phone",
+        "whatsapp": "Contact via WhatsApp"
+      }
+    },
+    "success": "Message sent successfully"
   }
 }

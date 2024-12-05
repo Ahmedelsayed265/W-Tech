@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { dehighlight, highlight } from "../utils/helpers";
-import SectionHeader from "../ui/layout/SectionHeader";
-import useGetServices from "../hooks/app/useGetServices";
-import axiosInstance from "../utils/axiosInstance";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
+import SectionHeader from "../ui/layout/SectionHeader";
+import useGetServices from "../hooks/useGetServices";
+import axiosInstance from "../utils/axiosInstance";
 
 function Contact() {
   const { data: services } = useGetServices();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -22,7 +24,7 @@ function Contact() {
     try {
       const res = await axiosInstance.post("/send_contact_us", formData);
       if (res.data.code === 200) {
-        toast.success("تم إرسال الرسالة بنجاح");
+        toast.success(t("contact.success"));
       }
     } catch (error) {
       console.log(error);
@@ -33,27 +35,23 @@ function Contact() {
 
   return (
     <>
-      <SectionHeader title={"تواصل معنا"} />
+      <SectionHeader title={t("contact.title")} />
       <section className="contact">
         <div className="container">
           <div className="form">
             <div className="row">
               <div className="col-lg-4 col-12 mb-lg-0 mb-3">
                 <div className="contact_info">
-                  <h3>تواصل معنا</h3>
-                  <p className="mb-5">
-                    اختار من بين باقات وصف الإبتكار لخدمات التصميم والتسويق،
-                    وأحصل على الخدمة التي تظهرك بأفضل شكل يترسخ في عقل جمهورك
-                    وتميزك بين منافسيك
-                  </p>
+                  <h3>{t("contact.title")}</h3>
+                  <p className="mb-5">{t("contact.description")}</p>
                   <ul>
                     <li className="field">
                       <div className="icon">
                         <i className="fa-light fa-map-location-dot"></i>
                       </div>
                       <div className="text">
-                        <h4>موقعنا : </h4>
-                        <p>جدة لمملكة العربية السعودية</p>
+                        <h4>{t("contact.location.label")}</h4>
+                        <p>{t("contact.location.value")}</p>
                       </div>
                     </li>
                     <li className="field">
@@ -61,9 +59,9 @@ function Contact() {
                         <i className="fa-sharp fa-light fa-envelope"></i>
                       </div>
                       <div className="text">
-                        <h4>البريد الالكترونى : </h4>
+                        <h4>{t("contact.email.label")}</h4>
                         <Link to="mailto:info@icit-sa.com">
-                          info@icit-sa.com
+                          {t("contact.email.value")}
                         </Link>
                       </div>
                     </li>
@@ -72,8 +70,10 @@ function Contact() {
                         <i className="fa-light fa-phone"></i>
                       </div>
                       <div className="text">
-                        <h4>الهاتف : </h4>
-                        <Link to="tel:+966564741999">+966564741999</Link>
+                        <h4>{t("contact.phone.label")}</h4>
+                        <Link to="tel:+966564741999">
+                          {t("contact.phone.value")}
+                        </Link>
                       </div>
                     </li>
                   </ul>
@@ -84,7 +84,8 @@ function Contact() {
                   <div className="form-group">
                     <div className="inputfield">
                       <label htmlFor="name">
-                        <i className="fa-light fa-user"></i> اسمك كاملاً
+                        <i className="fa-light fa-user"></i>{" "}
+                        {t("contact.form.fullName")}
                       </label>
                       <input
                         type="text"
@@ -102,7 +103,8 @@ function Contact() {
 
                     <div className="inputfield">
                       <label htmlFor="phone">
-                        <i className="fa-light fa-phone"></i> رقم الجوال
+                        <i className="fa-light fa-phone"></i>{" "}
+                        {t("contact.form.mobile")}
                       </label>
                       <input
                         type="tel"
@@ -123,7 +125,8 @@ function Contact() {
                     {/* field-set */}
                     <div className="inputfield">
                       <label htmlFor="service">
-                        <i className="fa-sharp fa-light fa-pen-nib"></i> الخدمة
+                        <i className="fa-sharp fa-light fa-pen-nib"></i>{" "}
+                        {t("contact.form.service")}
                       </label>
                       <select
                         name="service"
@@ -150,8 +153,8 @@ function Contact() {
 
                     <div className="inputfield">
                       <label htmlFor="type">
-                        <i className="fa-sharp fa-light fa-pen-nib"></i> نوع
-                        التواصل
+                        <i className="fa-sharp fa-light fa-pen-nib"></i>{" "}
+                        {t("contact.form.contactType")}
                       </label>
                       <select
                         name="type"
@@ -164,8 +167,12 @@ function Contact() {
                         onBlur={(e) => dehighlight(e)}
                       >
                         <option value="" disabled></option>
-                        <option value="call">تواصل عبر الهاتف</option>
-                        <option value="whatsapp">تواصل عبر واتساب</option>
+                        <option value="call">
+                          {t("contact.form.contactOptions.call")}
+                        </option>
+                        <option value="whatsapp">
+                          {t("contact.form.contactOptions.whatsapp")}
+                        </option>
                       </select>
                       <span className="highlight"></span>
                     </div>
@@ -174,7 +181,8 @@ function Contact() {
                   <div className="form-group">
                     <div className="inputfield">
                       <label htmlFor="message" className="message-label">
-                        <i className="fa-light fa-feather-pointed"></i> رسالتك
+                        <i className="fa-light fa-feather-pointed"></i>{" "}
+                        {t("contact.form.message")}
                       </label>
                       <textarea
                         name="message"
@@ -194,7 +202,7 @@ function Contact() {
                       <i className="fa-solid fa-spinner fa-spin"></i>
                     ) : (
                       <>
-                        إرسال{" "}
+                        {t("contact.form.submit")}{" "}
                         <i className="fa-sharp fa-light fa-paper-plane"></i>
                       </>
                     )}

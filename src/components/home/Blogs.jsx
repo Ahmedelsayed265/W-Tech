@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
-import useGetBlogs from "../../hooks/blogs/useGetBlogs";
+import useGetBlogs from "../../hooks/useGetBlogs";
 import { useTranslation } from "react-i18next";
+import { formatDate } from "../../utils/helpers";
 
 function Blogs() {
   const { data: blogs } = useGetBlogs();
   const { t } = useTranslation();
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return {
-      day: date.getDate(),
-      month: date.toLocaleString("default", { month: "short" }),
-    };
-  };
 
   return (
     <section className="blogs">

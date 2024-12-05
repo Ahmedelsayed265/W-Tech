@@ -209,6 +209,21 @@ a {
   font-size: 14px;
   margin-right: 4px;
 }
+.header .container .nav-links .navigations .nav-link a.active {
+  color: #174a8b;
+}
+.header .container .nav-links .navigations .nav-link a.active::after {
+  border-color: #174a8b;
+  background: #174a8b;
+}
+.header .container .nav-links .navigations .nav-link a:hover {
+  color: #174a8b;
+}
+.header .container .nav-links .navigations .nav-link a:hover::after {
+  border-color: #174a8b;
+  background: #174a8b;
+  transform: translateY(-50%) rotate(225deg);
+}
 .header .container .nav-links .navigations .nav-link .dropdown-menu {
   margin-top: 18px !important;
 }
@@ -220,21 +235,6 @@ a {
 }
 .header .container .nav-links .navigations .nav-link .dropdown-menu a::after {
   content: none !important;
-}
-.header .container .nav-links .navigations .nav-link.active a {
-  color: #174a8b;
-}
-.header .container .nav-links .navigations .nav-link.active a::after {
-  border-color: #174a8b;
-  background: #174a8b;
-}
-.header .container .nav-links .navigations .nav-link:hover a {
-  color: #174a8b;
-}
-.header .container .nav-links .navigations .nav-link:hover a::after {
-  border-color: #174a8b;
-  background: #174a8b;
-  transform: translateY(-50%) rotate(225deg);
 }
 .header .container .nav-links .navigations .nav-link .dropdown-menu {
   inset: 10px auto auto -40px !important;
@@ -383,6 +383,11 @@ footer .column .title h2 {
   font-size: 18px;
   color: #fff;
 }
+footer .column ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 footer .column ul li a {
   font-size: 14px;
   color: #ffffff;
@@ -392,7 +397,7 @@ footer .column ul li a {
 footer .column ul li a:hover {
   opacity: 1;
 }
-footer .column ul i {
+footer .column ul li i {
   color: #fff;
 }
 footer .about {
@@ -559,7 +564,7 @@ footer .copyrights ul a i {
 .floatForm .formDiv form .inputfield input:focus + span::after,
 .floatForm .formDiv form .inputfield textarea:focus + span::after,
 .floatForm .formDiv form .inputfield select:focus + span::after {
-  width: calc(100% - 16px);
+  width: 100%;
 }
 .floatForm .formDiv form .inputfield textarea {
   padding: 16px 0;
@@ -1686,7 +1691,7 @@ button {
   text-align: center;
   color: #fff;
   line-height: 1.5;
-  font-size: 40px;
+  font-size: 24px;
 }
 .newsletter form {
   display: flex;
@@ -2566,6 +2571,9 @@ body main {
   width: 100%;
   position: relative;
 }
+body .nav-pills {
+  border: 0 !important;
+}
 body.en {
   direction: ltr;
 }
@@ -2591,6 +2599,38 @@ body.en .steps .swiper-button-next {
 body.en .steps .swiper-button-prev {
   right: initial;
   left: 16px;
+}
+body.en .newsletter form input {
+  border-radius: 4px 0 0 4px;
+  direction: ltr;
+}
+body.en .newsletter form button {
+  border-radius: 0 4px 4px 0;
+}
+body.en .accordion-button::after {
+  margin-left: auto !important;
+  margin-right: initial !important;
+}
+body.en input,
+body.en textarea,
+body.en select {
+  direction: ltr !important;
+}
+body.en .contact form .form-group .inputfield label {
+  left: 32px;
+  right: initial;
+}
+body.en .floatForm .formDiv form .inputfield label {
+  left: 4px;
+  right: initial;
+}
+body.en .about-wrap .about-text h2 {
+  padding-left: 48px;
+  padding-right: initial;
+}
+body.en .about-wrap .about-text h2::after {
+  left: 0;
+  right: initial;
 }
 
 .fancybox__container {

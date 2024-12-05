@@ -1,73 +1,42 @@
 import { Link } from "react-router-dom";
+import { formatDate } from "../../utils/helpers";
+import { useTranslation } from "react-i18next";
+import useGetBlogs from "../../hooks/useGetBlogs";
 
 function BlogsSection() {
+  const { data: blogs } = useGetBlogs();
+  const { t } = useTranslation();
+
   return (
     <section className="blogs_section">
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 col-md-6 col-12 p-lg-3 p-2">
-            <div className="blog" data-aos="fade-up">
-              <Link to="/blogs/1">
-                <div className="blog_image">
-                  <img src="/b1.jpg" alt="blog" />
-                </div>
-                <div className="date">
-                  <span className="day">8</span>
-                  <span className="month">يناير</span>
-                </div>
-              </Link>
-              <h4>
-                <Link to="/blogs/1">
-                  الريبراندينج: كل ما تود معرفته عن تجديد هوية العلامة التجارية
+          {blogs?.map((blog) => (
+            <div className="col-lg-4 col-md-6 col-12 p-lg-3 p-2" key={blog?.id}>
+              <div className="blog" data-aos="fade-up">
+                <Link to={`/blogs/${blog?.id}`}>
+                  <div className="blog_image">
+                    <img src={blog?.image} alt={blog?.title} />
+                  </div>
+                  <div className="date">
+                    <span className="day">
+                      {formatDate(blog?.created_at).day}
+                    </span>
+                    <span className="month">
+                      {formatDate(blog?.created_at).month}
+                    </span>
+                  </div>
                 </Link>
-              </h4>
-              <Link to="/blogs/1" className="read_more">
-                إقراء المزيد
-              </Link>
-            </div>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 p-lg-3 p-2">
-            <div className="blog" data-aos="fade-up">
-              <Link to="/blogs/1">
-                <div className="blog_image">
-                  <img src="/b2.jpg" alt="blog" />
-                </div>
-                <div className="date">
-                  <span className="day">17</span>
-                  <span className="month">مارس</span>
-                </div>
-              </Link>
-              <h4>
-                <Link to="/blogs/1">
-                  أثرها عظيم.. كيف يؤثر تصميم سندات لشركتك على نشاطك التجاري؟
+                <h4>
+                  <Link to={`/blogs/${blog?.id}`}>{blog?.title}</Link>
+                </h4>
+                <p>{blog?.description}</p>
+                <Link to={`/blogs/${blog?.id}`} className="read_more">
+                  {t("blogs.readMore")}
                 </Link>
-              </h4>
-              <Link to="/blogs/1" className="read_more">
-                إقراء المزيد
-              </Link>
+              </div>
             </div>
-          </div>
-          <div className="col-lg-4 col-md-6 col-12 p-lg-3 p-2">
-            <div className="blog" data-aos="fade-up">
-              <Link to="/blogs/1">
-                <div className="blog_image">
-                  <img src="/b3.jpg" alt="blog" />
-                </div>
-                <div className="date">
-                  <span className="day">23</span>
-                  <span className="month">يوليو</span>
-                </div>
-              </Link>
-              <h4>
-                <Link to="/blogs/1">
-                  أهمية تصميمات سوشيال ميديا لشركتك والطريقة المثالية لتنفيذها
-                </Link>
-              </h4>
-              <Link to="/blogs/1" className="read_more">
-                إقراء المزيد
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
