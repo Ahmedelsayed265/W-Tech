@@ -77,6 +77,7 @@ function Steps() {
             navigation
             modules={[Navigation]}
             centeredSlides={true}
+            data-aos="fade-up"
             pagination={{
               type: "fraction",
             }}

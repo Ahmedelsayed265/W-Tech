@@ -3,12 +3,14 @@ import { Dropdown } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import useGetSettings from "../../hooks/useGetSettings";
 import useGetServices from "../../hooks/useGetServices";
 
 function Header() {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { t } = useTranslation();
   const { data: services } = useGetServices();
+  const { data: settings } = useGetSettings();
 
   const toggleNavMenu = () => {
     setShowNavMenu(!showNavMenu);
@@ -94,7 +96,9 @@ function Header() {
               <NavLink to="/contact">{t("contactUs")}</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink to="/company-profile">{t("companyFile")}</NavLink>
+              <Link target="_blank" to={settings?.pdf} download>
+                {t("companyFile")}
+              </Link>
             </li>
           </ul>
         </div>
@@ -103,7 +107,7 @@ function Header() {
             English <i className="fa-light fa-globe"></i>
           </button>
 
-          <Link to="tel:+966555555555">
+          <Link to={`tel:${settings?.phone}`}>
             <i className="fa-light fa-phone"></i>
           </Link>
 

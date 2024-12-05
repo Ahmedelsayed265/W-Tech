@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import CountUp from "react-countup";
+import useGetSettings from "../../hooks/useGetSettings";
 
 function Statics() {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
   const [startCount, setStartCount] = useState(false);
+  const { data: settings } = useGetSettings();
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver(
@@ -43,7 +45,13 @@ function Statics() {
               </div>
               <h2>
                 <span className="num" data-goal="3">
-                  {startCount && <CountUp duration={3} start={0} end={5} />}
+                  {startCount && (
+                    <CountUp
+                      duration={3}
+                      start={0}
+                      end={settings?.experience_year}
+                    />
+                  )}
                 </span>
                 {t("years_of_experience")}
               </h2>
@@ -57,7 +65,9 @@ function Statics() {
               </div>
               <h2>
                 <span className="num" data-goal="20">
-                  {startCount && <CountUp duration={3} start={0} end={200} />}
+                  {startCount && (
+                    <CountUp duration={3} start={0} end={settings?.customers} />
+                  )}
                 </span>
                 {t("clients")}
               </h2>
@@ -85,7 +95,13 @@ function Statics() {
               </div>
               <h2>
                 <span className="num" data-goal="25">
-                  {startCount && <CountUp duration={3} start={0} end={24} />}
+                  {startCount && (
+                    <CountUp
+                      duration={3}
+                      start={0}
+                      end={settings?.developers}
+                    />
+                  )}
                 </span>
                 {t("developers")}
               </h2>

@@ -5,10 +5,12 @@ import { dehighlight, highlight } from "../../utils/helpers";
 import { useTranslation } from "react-i18next";
 import useGetServices from "../../hooks/useGetServices";
 import axiosInstance from "../../utils/axiosInstance";
+import useGetSettings from "../../hooks/useGetSettings";
 
 function Footer() {
   const { t } = useTranslation();
   const [openForm, setOpenForm] = useState(false);
+  const { data: settings } = useGetSettings();
   const { data: services } = useGetServices();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -87,24 +89,16 @@ function Footer() {
           </div>
           <div className="col-lg-4 col-md-6 col-12 column column-2">
             <div className="title">
-              <h2>تواصل معنا</h2>
+              <h2>{t("contactUs")}</h2>
             </div>
             <ul>
               <li>
                 <i className="fa-sharp fa-solid fa-envelope"></i>
-                <Link to="mailto:sales@ocoda.com">hr@wsf.com</Link>
-              </li>
-              <li>
-                <i className="fa-sharp fa-solid fa-envelope"></i>
-                <Link to="mailto:sales@ocoda.com">sales@wsf.com</Link>
+                <Link to={`mailto:${settings?.email}`}>{settings?.email}</Link>
               </li>
               <li>
                 <i className="fa-sharp fa-solid fa-phone"></i>
-                <Link to="tel:+966564741999">+966564741999</Link>
-              </li>
-              <li>
-                <i className="fa-brands fa-whatsapp"></i>
-                <Link to="htttps://wa.me/+966564741999">+966564741999</Link>
+                <Link to={`tel:${settings?.phone}`}>{settings?.phone}</Link>
               </li>
             </ul>
           </div>

@@ -6,9 +6,11 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "../ui/layout/SectionHeader";
 import useGetServices from "../hooks/useGetServices";
 import axiosInstance from "../utils/axiosInstance";
+import useGetSettings from "../hooks/useGetSettings";
 
 function Contact() {
   const { data: services } = useGetServices();
+  const { data: settings } = useGetSettings();
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -60,8 +62,8 @@ function Contact() {
                       </div>
                       <div className="text">
                         <h4>{t("contact.email.label")}</h4>
-                        <Link to="mailto:info@icit-sa.com">
-                          {t("contact.email.value")}
+                        <Link to={`mailto:${settings?.email}`}>
+                          {settings?.email}
                         </Link>
                       </div>
                     </li>
@@ -71,8 +73,8 @@ function Contact() {
                       </div>
                       <div className="text">
                         <h4>{t("contact.phone.label")}</h4>
-                        <Link to="tel:+966564741999">
-                          {t("contact.phone.value")}
+                        <Link to={`tel:${settings?.phone}`}>
+                          {settings?.phone}
                         </Link>
                       </div>
                     </li>
