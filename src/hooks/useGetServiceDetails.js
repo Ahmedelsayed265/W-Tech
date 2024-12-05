@@ -3,15 +3,15 @@ import { useParams } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import i18next from "i18next";
 
-export default function useGetBlogDetails() {
+export default function useGetServiceDetails() {
   const lang = i18next.language;
   const { id } = useParams();
 
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["blog-details", lang, id],
+    queryKey: ["service-details", lang, id],
 
     queryFn: async () => {
-      const res = await axiosInstance.get(`/get_blog_details/${id}`);
+      const res = await axiosInstance.get(`/service_details/${id}`);
       return res?.data?.data;
     },
 

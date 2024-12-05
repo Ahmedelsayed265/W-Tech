@@ -21,7 +21,7 @@ function Services() {
         <div className="row">
           {services?.map((service) => (
             <div
-              className="col-lg-4 col-md-6 col-12 p-3"
+              className="col-lg-4 col-md-6 col-12 p-2"
               key={service?.id}
               data-aos="fade-up"
             >

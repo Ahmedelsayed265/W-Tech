@@ -7,9 +7,6 @@
   background: $white;
   left: 0;
   transition: $transation;
-  &.scrolled {
-    box-shadow: $shadow;
-  }
   .container {
     height: 80px;
     .logo {
@@ -201,6 +198,28 @@
           }
         }
       }
+    }
+  }
+  &.sticky {
+    background: #0f68b6 !important;
+    .container .logo a img {
+      filter: brightness(0) invert(1);
+    }
+    .container .nav-links .navigations .nav-link a {
+      color: $white !important;
+      &::after {
+        border-color: #ffffff;
+        background: #ffffff;
+      }
+    }
+    .container .btns .lang_toggler {
+      color: $white !important;
+    }
+    .container .btns a {
+      color: #ffffff;
+    }
+    .container .btns .toogler span {
+      background: #ffffff;
     }
   }
 }

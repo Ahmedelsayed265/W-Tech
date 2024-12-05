@@ -18,7 +18,7 @@ function Blogs() {
           {blogs?.map((blog) => (
             <div className="col-lg-4 col-md-6 col-12 p-lg-3 p-2" key={blog?.id}>
               <div className="blog" data-aos="fade-up">
-                <Link to="blogs/1">
+                <Link to={`/blogs/${blog?.id}`}>
                   <div className="blog_image">
                     <img src={blog?.image} alt="blog" />
                   </div>
@@ -35,7 +35,7 @@ function Blogs() {
                   <Link to={`/blogs/${blog?.id}`}>{blog?.title}</Link>
                 </h4>
                 <p>{blog?.description}</p>
-                <Link to="blogs/1" className="read_more">
+                <Link to={`/blogs/${blog?.id}`} className="read_more">
                   {t("blogs.readMore")}
                 </Link>
               </div>

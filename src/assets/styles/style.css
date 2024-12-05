@@ -148,9 +148,6 @@ a {
   left: 0;
   transition: all 0.4s ease-in-out;
 }
-.header.scrolled {
-  box-shadow: 0 20px 40px 0 rgba(76, 111, 255, 0.15);
-}
 .header .container {
   height: 80px;
 }
@@ -351,6 +348,28 @@ a {
 .header .container .btns .toogler.close span:nth-child(3) {
   transform-origin: 100% 90%;
   transform: rotate(45deg);
+}
+.header.sticky {
+  background: #0f68b6 !important;
+}
+.header.sticky .container .logo a img {
+  filter: brightness(0) invert(1);
+}
+.header.sticky .container .nav-links .navigations .nav-link a {
+  color: #fff !important;
+}
+.header.sticky .container .nav-links .navigations .nav-link a::after {
+  border-color: #ffffff;
+  background: #ffffff;
+}
+.header.sticky .container .btns .lang_toggler {
+  color: #fff !important;
+}
+.header.sticky .container .btns a {
+  color: #ffffff;
+}
+.header.sticky .container .btns .toogler span {
+  background: #ffffff;
 }
 
 footer {
@@ -661,7 +680,7 @@ footer .copyrights ul a i {
 .hero-section {
   background-size: cover;
   background-position: 50% 85%;
-  background-color: #f8f9fd;
+  background-image: linear-gradient(0deg, rgba(15, 104, 182, 0.9176470588), rgba(15, 104, 182, 0.9176470588)), url("/header.jpg");
   width: 100%;
 }
 .hero-section .hero-swiper {
@@ -674,7 +693,6 @@ footer .copyrights ul a i {
   justify-content: center;
 }
 .hero-section .hero-swiper .swiper-slide {
-  background-color: #f8f9fd;
   padding: 24px;
   display: flex;
   height: auto;
@@ -726,21 +744,17 @@ footer .copyrights ul a i {
 }
 .hero-section .hero-description h1 {
   font-size: 40px;
-  color: #172541;
+  color: #fff;
   font-weight: bold;
   line-height: 62px;
 }
 .hero-section .hero-description h1 span {
-  background: linear-gradient(-272.54deg, #c0d7ee 12.86%, #0f67b6 68.06%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: inherit;
+  color: #172541;
 }
 .hero-section .hero-description p {
   font-size: 16px;
   line-height: 24px;
-  color: #9ba4bf;
+  color: #fff;
 }
 .hero-section .hero-description .links {
   display: flex;
@@ -760,8 +774,8 @@ footer .copyrights ul a i {
   background: #172541;
 }
 .hero-section .hero-description .links a:nth-child(2) {
-  border: 1px solid #174a8b;
-  color: #174a8b;
+  border: 1px solid #fff;
+  color: #fff;
 }
 .hero-section .hero-description .links a:nth-child(2):hover {
   border-color: #172541;
@@ -1225,7 +1239,7 @@ footer .copyrights ul a i {
 
 .services {
   padding: 100px 0 40px;
-  background-color: #fff;
+  background-color: #f8f9fd;
   position: relative;
 }
 @media (max-width: 768px) {
@@ -1277,6 +1291,7 @@ footer .copyrights ul a i {
 }
 .services .service-card {
   border: 1px solid #eeeeee;
+  background: #fff;
   border-radius: 4px;
   height: 100%;
   padding: 32px;
@@ -1431,7 +1446,7 @@ footer .copyrights ul a i {
 }
 
 .blog_details__section {
-  padding: 40px 16px;
+  padding: 60px 16px;
 }
 @media (max-width: 576px) {
   .blog_details__section {
@@ -1453,6 +1468,7 @@ footer .copyrights ul a i {
 .blog_details__section .blog_img img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 3/2;
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
@@ -2454,34 +2470,17 @@ button {
   width: 110%;
   right: -10px;
 }
-.about_service .video-wrapper {
+.about_service .img {
   width: 100%;
   height: 100%;
+}
+.about_service .img img {
+  border-radius: 8px;
   aspect-ratio: 3/2;
-  border-radius: 6px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.262745098), rgba(0, 0, 0, 0.2352941176)), url("/business.jpg");
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-}
-.about_service .video-wrapper .play-btn {
-  width: 80px;
-  height: 80px;
-  background: #174a8b;
-  border-radius: 50%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-.about_service .video-wrapper .play-btn i {
-  font-size: 28px;
-  color: #fff;
-  width: 28px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .error-section {
@@ -2635,4 +2634,11 @@ body.en .about-wrap .about-text h2::after {
 
 .fancybox__container {
   z-index: 99999999999 !important;
+}
+
+.blog_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

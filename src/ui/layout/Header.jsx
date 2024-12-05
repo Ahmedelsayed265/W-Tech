@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import useGetSettings from "../../hooks/useGetSettings";
@@ -9,6 +9,7 @@ import useGetServices from "../../hooks/useGetServices";
 function Header() {
   const [showNavMenu, setShowNavMenu] = useState(false);
   const { t } = useTranslation();
+  const headerRef = useRef(null);
   const { data: services } = useGetServices();
   const { data: settings } = useGetSettings();
 
@@ -32,6 +33,16 @@ function Header() {
     };
   });
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        headerRef.current.classList.add("sticky");
+      } else {
+        headerRef.current.classList.remove("sticky");
+      }
+    });
+  }, []);
+
   const handleLang = () => {
     const currentLang = i18next.language;
     const bodyElement = document.querySelector("body");
@@ -48,7 +59,7 @@ function Header() {
   };
 
   return (
-    <nav className="header">
+    <nav className="header" ref={headerRef}>
       <div className="container d-flex">
         <div className="logo">
           <Link to="/">
@@ -74,8 +85,8 @@ function Header() {
                   {services?.map((service) => (
                     <Dropdown.Item
                       key={service?.id}
-                      as="a"
-                      href={`/services/${service.id}`}
+                      as={Link}
+                      to={`/services/${service.id}`}
                     >
                       {service.title}
                     </Dropdown.Item>

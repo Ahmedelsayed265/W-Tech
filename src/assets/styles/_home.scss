@@ -381,8 +381,7 @@
 }
 .services {
   padding: 100px 0 40px;
-  // background-color: #f8f9fd;
-  background-color: $white;
+  background-color: #f8f9fd;
   @media (max-width: 768px) {
     padding: 80px 0;
   }
@@ -431,6 +430,7 @@
   }
   .service-card {
     border: 1px solid #eeeeee;
+    background: $white;
     border-radius: 4px;
     height: 100%;
     padding: 32px;
@@ -583,7 +583,7 @@
 }
 
 .blog_details__section {
-  padding: 40px 16px;
+  padding: 60px 16px;
   @media (max-width: 576px) {
     padding: 20px 16px;
   }
@@ -601,6 +601,7 @@
     img {
       width: 100%;
       height: 100%;
+      aspect-ratio: 3 / 2;
       object-fit: cover;
       display: block;
     }

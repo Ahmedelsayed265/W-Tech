@@ -855,9 +855,9 @@ function WorksSection() {
                 </div>
               </Tab>
             </Tabs>
-            <div className="row justify-content-center load-more">
+            {/* <div className="row justify-content-center load-more">
               <span className="load-btn">Load More</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

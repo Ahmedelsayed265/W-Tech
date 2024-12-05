@@ -90,3 +90,10 @@ body {
 .fancybox__container {
   z-index: 99999999999 !important;
 }
+
+.blog_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

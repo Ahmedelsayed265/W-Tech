@@ -9,7 +9,7 @@ export default function useGetBlogs() {
     queryKey: ["blogs", lang],
 
     queryFn: async () => {
-      const res = await axiosInstance.get("/get_Services");
+      const res = await axiosInstance.get("/get_blogs");
       return res?.data?.data;
     },
 

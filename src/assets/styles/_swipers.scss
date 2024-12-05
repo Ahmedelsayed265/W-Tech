@@ -1,7 +1,7 @@
 .hero-section {
   background-size: cover;
   background-position: 50% 85%;
-  background-color: #f8f9fd;
+  background-image: linear-gradient(0deg, #0f68b6ea, #0f68b6ea), url("/header.jpg");
   width: 100%;
   .hero-swiper {
     width: 100%;
@@ -10,7 +10,6 @@
     flex-direction: column;
     @include centerFlex();
     .swiper-slide {
-      background-color: #f8f9fd;
       padding: 24px;
       display: flex;
       height: auto;
@@ -58,20 +57,17 @@
     gap: 24px;
     h1 {
       font-size: 40px;
-      color: $main-color;
+      color: $white;
       font-weight: bold;
       line-height: 62px;
       span {
-        background: $text-gradiant;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        line-height: inherit;
+        color: $main-color
       }
     }
     p {
       font-size: 16px;
       line-height: 24px;
-      color: $text-color;
+      color: $white;
     }
     .links {
       display: flex;
@@ -89,8 +85,8 @@
           }
         }
         &:nth-child(2) {
-          border: 1px solid $second;
-          color: $second;
+          border: 1px solid $white;
+          color: $white;
           &:hover {
             border-color: $main-color;
             color: $main-color;
