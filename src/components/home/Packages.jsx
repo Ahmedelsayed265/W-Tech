@@ -1,4 +1,3 @@
-
 function Packages() {
   const packages = [
     {
@@ -15,8 +14,8 @@ function Packages() {
         { text: "دليل استخدام الهوية", included: false },
         { text: "تسليم الملفات بصيغ قابلة للتعديل", included: true },
         { text: "تعديلات غير محدودة", included: true },
-        { text: "دعم فني 24/7", included: true }
-      ]
+        { text: "دعم فني 24/7", included: true },
+      ],
     },
     {
       name: "الباقة المتقدمة",
@@ -32,8 +31,8 @@ function Packages() {
         { text: "تصميم ختم رسمي", included: true },
         { text: "تصميم قرطاسية مكتبية", included: true },
         { text: "تصميم توقيع رقمي", included: true },
-        { text: "استشارات تسويقية", included: true }
-      ]
+        { text: "استشارات تسويقية", included: true },
+      ],
     },
     {
       name: "الباقة الاحترافية",
@@ -49,9 +48,9 @@ function Packages() {
         { text: "تقارير شهرية", included: true },
         { text: "تصوير احترافي للمنتجات", included: true },
         { text: "تصميم فيديو موشن جرافيك", included: true },
-        { text: "استشارات تطويرية", included: true }
-      ]
-    }
+        { text: "استشارات تطويرية", included: true },
+      ],
+    },
   ];
 
   return (
@@ -71,13 +70,12 @@ function Packages() {
                 <ul className="packagesFeatures">
                   {pkg.packagesFeatures.map((feature, idx) => (
                     <li key={idx}>
-                       <span>{feature.text}</span>
+                      <span>{feature.text}</span>
                       {feature.included ? (
                         <i className="fa-solid fa-check"></i>
                       ) : (
                         <i className="fa-solid fa-times"></i>
                       )}
-                     
                     </li>
                   ))}
                 </ul>
