@@ -2737,7 +2737,7 @@ button {
   width: 100%;
 }
 .table_container::-webkit-scrollbar {
-  height: 3px;
+  height: 6px;
 }
 
 table {
@@ -2755,6 +2755,7 @@ table th {
   position: relative;
   min-width: 250px;
   max-width: 250px;
+  font-size: 12px;
   white-space: normal;
 }
 table td .icon,

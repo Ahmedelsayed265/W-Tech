@@ -25,9 +25,30 @@ function Packages() {
                 </thead>
                 <tbody>
                   {packageData?.map((item) => (
-                    <tr key={item?.id}>
-                      <td>{item?.name}</td>
-                    </tr>
+                    <>
+                      <tr key={item?.id}>
+                        <td
+                          style={{ backgroundColor: "#0f68b6", color: "white" }}
+                          colSpan={90}
+                        >
+                          {item?.name}
+                        </td>
+                      </tr>
+
+                      {item?.data?.map((service) => (
+                        <tr key={service?.id}>
+                          <td>{service?.name}</td>
+
+                          {packagesNames?.map((package_item) => (
+                            <td key={package_item.id}>
+                              {service?.info?.find(
+                                (info) => info.package_id === package_item.id
+                              )?.name || "-"}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </>
                   ))}
                 </tbody>
               </table>
