@@ -1,5 +1,5 @@
+import { useEffect, useRef, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import router from "./router";
 
 import Header from "./ui/layout/Header";
@@ -11,10 +11,13 @@ import i18next from "i18next";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import useGetSettings from "./hooks/useGetSettings";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { isLoading: loading } = useGetSettings();
   const location = useLocation();
+  const mainRef = useRef(null);
   const language = i18next.language;
 
   useEffect(() => {
@@ -58,12 +61,22 @@ function App() {
     setTimeout(() => AOS.refresh(), 100);
   }, [location]);
 
-  return isLoading ? (
+  useEffect(() => {
+    if (!isLoading && mainRef.current) {
+      if (location.pathname === "/") {
+        mainRef.current.classList.add("home_main");
+      } else {
+        mainRef.current.classList.remove("home_main");
+      }
+    }
+  }, [isLoading, location.pathname, mainRef]);
+
+  return isLoading || loading ? (
     <Preloader />
   ) : (
     <>
       <Header />
-      <main className="content">
+      <main className="content" ref={mainRef}>
         <Routes>
           {router.map((route) => {
             return (

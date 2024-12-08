@@ -85,6 +85,17 @@ function Steps() {
             rtl={lang === "ar"}
             key={lang}
             className="steps-swiper"
+            breakpoints={{
+              992: {
+                slidesPerView: 3
+              },
+              768: {
+                slidesPerView: 2
+              },
+              350: {
+                slidesPerView: 1
+              }
+            }}
           >
             {timelineSteps.map((step, index) => (
               <SwiperSlide key={index}>

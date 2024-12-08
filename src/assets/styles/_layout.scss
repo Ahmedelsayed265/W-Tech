@@ -1,205 +1,235 @@
 .header-bg {
   width: 100%;
-  height: 80px;
   background: #0f68b6;
 }
+
 .header {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 80px;
   position: fixed;
   z-index: 9998;
   top: 0;
-  background: transparent;
   left: 0;
+  background: #0f68b6;
   transition: all 0.3s ease-in-out !important;
-  .container {
-    height: 80px;
-    .logo {
-      height: 100%;
-      flex: 1;
+  &.home_header {
+    background: transparent;
+  }
+  .top_bar {
+    width: 100%;
+    padding: 4px 0;
+    border-bottom: 1px solid #d0d0d031;
+    .contacts {
+      @include space-between();
+
+      .info,
+      .social {
+        display: flex;
+        gap: 24px;
+      }
       a {
+        color: $white;
         display: flex;
         align-items: center;
-        height: 80px;
-        img {
-          height: 56px;
-          object-fit: contain;
-          filter: brightness(0) invert(1);
-        }
+        gap: 8px;
+        font-size: 12px;
       }
     }
-    .nav-links {
-      flex: 3;
-      height: 100%;
-      .navigations {
-        display: flex;
-        justify-content: center;
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
+
+  nav {
+    padding: 8px 0;
+    .container {
+      .logo {
         height: 100%;
-        align-items: center;
-        .nav-link {
-          height: 100%;
-          padding: 0 24px !important;
-          white-space: nowrap;
-          @include centerFlex();
-          transition: $transation;
-          a {
-            padding: 0 !important;
-            color: $white;
-            font-weight: 600;
-            font-size: 12px;
-            position: relative;
-            transition: $transation;
-            &::after {
-              position: absolute;
-              content: "";
-              transition: $transation;
-              width: 6px;
-              height: 6px;
-              border: 1px solid $white;
-              right: -16px;
-              top: 50%;
-              transform: translateY(-50%) rotate(45deg);
-            }
-            i {
-              font-size: 14px;
-              margin-right: 4px;
-            }
-            &.active {
-              color: $white;
-              &::after {
-                border-color: $white;
-                background: $white;
-              }
-            }
-            &:hover {
-              color: $second;
-              &::after {
-                border-color: $second;
-                background: $second;
-                transform: translateY(-50%) rotate(225deg);
-              }
-            }
-          }
-          .dropdown-menu {
-            margin-top: 18px !important;
-            a {
-              padding: 4px 16px !important;
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              color: #000 !important;
-              &::after {
-                content: none !important;
-              }
-            }
-          }
-          .dropdown-menu {
-            inset: 10px auto auto -40px !important;
-            border: 0 !important;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 0 !important;
-            li a {
-              &::after {
-                display: none;
-              }
-            }
+        flex: 1;
+        a {
+          display: flex;
+          align-items: center;
+          img {
+            height: 50px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
           }
         }
       }
-      @media (max-width: 992px) {
-        position: fixed;
-        top: 80px;
-        background: #0f68b6;
-        transition: $transation;
-        right: -100%;
-        width: min(100% - 16px, 300px);
-        height: calc(100vh - 80px);
-        &.show {
-          right: 0;
-        }
+      .nav-links {
+        flex: 3;
+        height: 100%;
         .navigations {
-          flex-direction: column;
-          justify-content: start;
-          padding-top: 40px;
-          transform: translateY(-20px);
+          display: flex;
+          justify-content: center;
+          height: 100%;
+          align-items: center;
           .nav-link {
-            height: 80px !important;
-            width: 100%;
+            height: 100%;
+            padding: 0 24px !important;
+            white-space: nowrap;
+            @include centerFlex();
+            transition: $transation;
             a {
-              width: min(80px, 100px);
-              @include centerFlex();
-              flex: 1;
-              justify-content: space-between;
+              padding: 0 !important;
+              color: $white;
+              font-weight: 600;
+              font-size: 12px;
+              position: relative;
+              transition: $transation;
+              &::after {
+                position: absolute;
+                content: "";
+                transition: $transation;
+                width: 6px;
+                height: 6px;
+                border: 1px solid $white;
+                right: -16px;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+              }
+              i {
+                font-size: 14px;
+                margin-right: 4px;
+              }
+              &.active {
+                color: $white;
+                &::after {
+                  border-color: $white;
+                  background: $white;
+                }
+              }
+              &:hover {
+                color: $white;
+                &::after {
+                  border-color: $white;
+                  background: $white;
+                  transform: translateY(-50%) rotate(225deg);
+                }
+              }
             }
-            @media (max-width: 768px) {
-              height: 50px !important;
+            .dropdown-menu {
+              margin-top: 18px !important;
+              a {
+                padding: 4px 16px !important;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                color: #000 !important;
+                &::after {
+                  content: none !important;
+                }
+              }
+            }
+            .dropdown-menu {
+              inset: 10px auto auto -40px !important;
+              border: 0 !important;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+              padding: 0 !important;
+              li a {
+                &::after {
+                  display: none;
+                }
+              }
             }
           }
-          .dropdown {
-            width: 100% !important;
-            a {
-              width: 100%;
-            }
-          }
-          .dropdown-menu {
-            a {
-              width: 100%;
-              display: block;
-              color: #000 !important ;
-            }
-          }
-        }
-      }
-    }
-    .btns {
-      flex: 1;
-      @include centerFlex();
-      justify-content: flex-end;
-      height: 100%;
-      gap: 16px;
-      a {
-        color: $white;
-        font-size: 16px;
-      }
-      .lang_toggler {
-        @include clearInput();
-        @include centerFlex();
-        gap: 4px;
-        font-size: 14px;
-        color: $white;
-        i {
-          font-size: 16px;
-        }
-      }
-      .toogler {
-        display: none;
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
-        flex-direction: column;
-        justify-content: space-around;
-        span {
-          width: 20px;
-          height: 2px;
-          background: $white;
-          display: block;
-          transition: $transation;
         }
         @media (max-width: 992px) {
-          display: flex;
+          position: fixed;
+          top: 66px;
+          background: #0f68b6;
+          transition: $transation;
+          right: -100%;
+          width: min(100% - 16px, 300px);
+          height: calc(100vh - 66px);
+          &.show {
+            right: 0;
+          }
+          .navigations {
+            flex-direction: column;
+            justify-content: start;
+            padding: 40px 12px;
+            transform: translateY(-20px);
+            .nav-link {
+              height: 80px !important;
+              width: 100%;
+              a {
+                width: min(80px, 100px);
+                @include centerFlex();
+                flex: 1;
+                justify-content: space-between;
+              }
+              @media (max-width: 768px) {
+                height: 50px !important;
+              }
+            }
+            .dropdown {
+              width: 100% !important;
+              a {
+                width: 100%;
+              }
+            }
+            .dropdown-menu {
+              a {
+                width: 100%;
+                display: block;
+                color: #000 !important ;
+              }
+            }
+          }
         }
-        &.close {
+      }
+      .btns {
+        flex: 1;
+        @include centerFlex();
+        justify-content: flex-end;
+        height: 100%;
+        gap: 16px;
+        a {
+          color: $white;
+          font-size: 16px;
+        }
+        .lang_toggler {
+          @include clearInput();
+          @include centerFlex();
+          gap: 4px;
+          font-size: 14px;
+          color: $white;
+          i {
+            font-size: 16px;
+          }
+        }
+        .toogler {
+          display: none;
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+          flex-direction: column;
+          justify-content: space-around;
           span {
-            &:nth-child(1) {
-              transform: rotate(-45deg);
-              transform-origin: 90% 10%;
-            }
-            &:nth-child(2) {
-              opacity: 0;
-            }
-            &:nth-child(3) {
-              transform-origin: 100% 90%;
-              transform: rotate(45deg);
+            width: 20px;
+            height: 2px;
+            background: $white;
+            display: block;
+            transition: $transation;
+          }
+          @media (max-width: 992px) {
+            display: flex;
+          }
+          &.close {
+            span {
+              &:nth-child(1) {
+                transform: rotate(-45deg);
+                transform-origin: 90% 10%;
+              }
+              &:nth-child(2) {
+                opacity: 0;
+              }
+              &:nth-child(3) {
+                transform-origin: 100% 90%;
+                transform: rotate(45deg);
+              }
             }
           }
         }
@@ -210,13 +240,6 @@
     background: #0f68b6 !important;
     .container .logo a img {
       filter: brightness(0) invert(1);
-    }
-    .container .nav-links .navigations .nav-link a {
-      color: $white;
-      &::after {
-        border-color: #ffffff;
-        background: #ffffff;
-      }
     }
     .container .btns .lang_toggler {
       color: $white !important;
@@ -229,6 +252,7 @@
     }
   }
 }
+
 footer {
   width: 100%;
   padding-top: 60px;
@@ -329,6 +353,7 @@ footer {
     }
   }
 }
+
 .floatWhatsapp {
   position: fixed;
   z-index: 20;
@@ -345,6 +370,7 @@ footer {
   font-size: 32px;
   box-shadow: 0px 4px 8px #25d36630;
 }
+
 .floatForm {
   position: fixed;
   z-index: 20;
@@ -486,6 +512,7 @@ footer {
     }
   }
 }
+
 .section-header {
   width: 100%;
   height: 30dvh;
@@ -508,4 +535,11 @@ footer {
       color: $second;
     }
   }
+}
+
+.blog_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

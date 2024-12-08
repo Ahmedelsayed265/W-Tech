@@ -1,6 +1,6 @@
 import Blogs from "../components/home/Blogs";
 import FAQs from "../components/home/FAQs";
-import Features from "../components/general/Features";
+// import Features from "../components/general/Features";
 import HeroSection from "../components/home/HeroSection";
 import Newsletter from "../components/general/Newsletter";
 import Potential from "../components/home/Potential";
@@ -20,7 +20,7 @@ function Home() {
       <Packages />
       <Blogs />
       <FAQs />
-      <Features />
+      {/* <Features /> */}
       <Newsletter />
     </>
   );

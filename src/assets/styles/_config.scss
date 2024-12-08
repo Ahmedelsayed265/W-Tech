@@ -72,3 +72,12 @@ $text-gradiant: linear-gradient(-272.54deg, #c0d7ee 12.86%, #0f67b6 68.06%);
   height: 200px;
   background: $text-gradiant;
 }
+
+.nav-pills {
+  border: 0 !important;
+}
+
+.fancybox__container {
+  z-index: 99999999999 !important;
+}
+

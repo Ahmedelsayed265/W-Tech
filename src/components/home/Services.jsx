@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useGetServices from "../../hooks/useGetServices";
 import { useTranslation } from "react-i18next";
 
@@ -21,16 +22,22 @@ function Services() {
         <div className="row">
           {services?.map((service) => (
             <div
-              className="col-lg-4 col-md-6 col-12 p-2"
+              className="col-lg-3 col-md-6 col-12 p-2"
               key={service?.id}
               data-aos="fade-up"
             >
               <div className="service-card">
-                <div className="icon">
-                  <img src={service?.image} alt={service?.title} />
+                <div className="img">
+                  <img src="/b1.jpg" alt="service-image" />
+                  <div className="icon">
+                    <img src={service?.image} alt={service?.title} />
+                  </div>
                 </div>
                 <h4 className="title">{service?.title}</h4>
                 <p>{service?.description}</p>
+                <Link to={`/services/${service?.id}`} className="service-btn">
+                  {t("services.button")}
+                </Link>
               </div>
             </div>
           ))}
