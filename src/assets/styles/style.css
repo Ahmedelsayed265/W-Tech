@@ -2705,7 +2705,7 @@ button {
 }
 .package-card .duration {
   font-size: 1rem;
-  color: #aaa;
+  color: #eee;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -2729,6 +2729,63 @@ button {
 .package-card .packagesFeatures .times {
   color: #f44336;
   margin-right: 10px;
+}
+
+.table_container {
+  overflow: scroll;
+  padding-bottom: 8px;
+  width: 100%;
+}
+.table_container::-webkit-scrollbar {
+  height: 3px;
+}
+
+table {
+  white-space: nowrap;
+  width: 100%;
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  border-radius: 16px;
+  position: relative;
+}
+table td,
+table th {
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  position: relative;
+  min-width: 250px;
+  max-width: 250px;
+  white-space: normal;
+}
+table td .icon,
+table th .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+table td .check,
+table th .check {
+  color: #174a8b;
+}
+table td .x,
+table th .x {
+  color: #f02020;
+}
+table td.circled,
+table th.circled {
+  padding: 8px 24px;
+}
+table td.circled:before,
+table th.circled:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  right: 8px;
+  height: 8px;
+  background: #174a8b;
+  border-radius: 50%;
 }
 
 body {
