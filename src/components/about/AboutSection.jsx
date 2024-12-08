@@ -1,9 +1,12 @@
 import useGetAbout from "../../hooks/useGetAbout";
+import DataLoader from "./../../ui/loaders/DataLoader";
 
 function AboutSection() {
-  const { data: about } = useGetAbout();
+  const { data: about, isLoading } = useGetAbout();
 
-  return (
+  return isLoading ? (
+    <DataLoader minHeight="548px" minWidth="100%" />
+  ) : (
     <section className="about-wrap">
       <div className="container">
         {about?.map((item, index) =>

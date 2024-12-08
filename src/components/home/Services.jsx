@@ -28,9 +28,9 @@ function Services() {
             >
               <div className="service-card">
                 <div className="img">
-                  <img src="/b1.jpg" alt="service-image" />
+                  <img src={service?.image} alt="service-image" />
                   <div className="icon">
-                    <img src={service?.image} alt={service?.title} />
+                    <img src={service?.icon} alt={service?.title} />
                   </div>
                 </div>
                 <h4 className="title">{service?.title}</h4>

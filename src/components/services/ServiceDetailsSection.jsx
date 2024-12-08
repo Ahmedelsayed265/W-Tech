@@ -1,15 +1,20 @@
 import { Fancybox } from "@fancyapps/ui";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import useGetServiceDetails from "./../../hooks/useGetServiceDetails";
+import DataLoader from "../../ui/loaders/DataLoader";
 
 function ServiceDetailsSection() {
-  const { data: serviceDetails } = useGetServiceDetails();
+  const { data: serviceDetails, isLoading } = useGetServiceDetails();
+  const { t } = useTranslation();
   useEffect(() => {
     Fancybox.bind("[data-fancybox]", {});
   }, []);
 
-  return (
+  return isLoading ? (
+    <DataLoader minHeight="548px" minWidth="100%" />
+  ) : (
     <section className="about_service">
       <div className="container">
         <div className="row">
@@ -19,12 +24,10 @@ function ServiceDetailsSection() {
                 <img src="/Rectangle-5-Copy-3.png" alt="" />
               </span>
               <h1 data-aos="fade-up">{serviceDetails?.title}</h1>
-              {/* <h3 data-aos="fade-up">
-                أطلق حملاتك الإعلانية الآن بسعر يبدأ من 2000 ريال
-              </h3> */}
+
               <p data-aos="fade-up">{serviceDetails?.description}</p>
               <Link data-aos="fade-up" to="/contact">
-                إطلبها الأن
+                {t("order_now")}
               </Link>
             </div>
           </div>

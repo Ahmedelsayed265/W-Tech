@@ -1,19 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../utils/axiosInstance";
 import i18next from "i18next";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export default function useGetProjects() {
+export default function useGetProjectDetails() {
   const lang = i18next.language;
-  const [searchParams] = useSearchParams();
-
-  const category = searchParams.get("category");
+  const { id } = useParams();
 
   const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["projects", lang, category],
+    queryKey: ["project-details", lang, id],
 
     queryFn: async () => {
-      const res = await axiosInstance.get(`/get_projects?category_id=${category}`);
+      const res = await axiosInstance.get(`/project_details/${id}`);
       return res?.data?.data;
     },
 

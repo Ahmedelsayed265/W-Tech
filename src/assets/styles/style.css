@@ -63,6 +63,23 @@ a {
   z-index: 99999999999 !important;
 }
 
+.tableLoader {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.tableLoader .loader--style8 {
+  width: 80px;
+  height: 80px;
+}
+.tableLoader svg path,
+.tableLoader svg rect {
+  fill: #174a8b;
+}
+
 .preloader {
   width: 100%;
   height: 100dvh;
@@ -1913,17 +1930,13 @@ button {
 }
 
 .projects {
-  padding: 60px 0;
-}
-@media (max-width: 576px) {
-  .projects {
-    padding: 60px 8px;
-  }
+  padding: 40px 0;
 }
 .projects .nav {
   flex-wrap: nowrap;
   border-radius: 8px;
   width: 100%;
+  margin-bottom: 24px;
   background: #f8fafc;
   display: flex;
   cursor: pointer;
@@ -1932,36 +1945,7 @@ button {
 .projects .nav .nav-item {
   flex: 1;
 }
-.projects .nav .nav-item button {
-  width: 100%;
-}
-.projects .nav .nav-link {
-  white-space: nowrap;
-  flex: 1;
-  font-size: 12px;
-  font-weight: 600;
-  color: #172541 !important;
-}
-.projects .nav .nav-link.active {
-  background-color: #172541 !important;
-  color: #fff !important;
-}
-.projects .filter-btns {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.projects .filter-btns .isotope-menu {
-  flex-wrap: wrap;
-  border-radius: 8px;
-  width: 100%;
-  background: #f8fafc;
-  display: flex;
-  cursor: pointer;
-  gap: 8px;
-}
-.projects .filter-btns .isotope-menu .filter-btn {
+.projects .filter-btn {
   height: 50px;
   display: flex;
   align-items: center;
@@ -1976,18 +1960,16 @@ button {
   font-size: 12px;
   white-space: nowrap;
 }
-.projects .filter-btns .isotope-menu .filter-btn.active {
+.projects .filter-btn.active, .projects .filter-btn:hover {
   background: #172541;
   color: #fff;
 }
-.projects .filter-wapper {
-  margin-top: 20px;
-}
-.projects .filter-wapper .project-item:hover .image .layer {
+
+.project-item:hover .image .layer {
   opacity: 1;
   transform: scaleY(1);
 }
-.projects .filter-wapper .project-item .image {
+.project-item .image {
   width: 100%;
   display: flex;
   position: relative;
@@ -1996,18 +1978,18 @@ button {
   height: 350px;
 }
 @media (max-width: 768px) {
-  .projects .filter-wapper .project-item .image {
+  .project-item .image {
     height: 200px;
   }
 }
-.projects .filter-wapper .project-item .image img {
+.project-item .image img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: bottom;
      object-position: bottom;
 }
-.projects .filter-wapper .project-item .image .layer {
+.project-item .image .layer {
   background: linear-gradient(180deg, rgba(7, 23, 78, 0) 0, rgba(7, 23, 78, 0.9607843137) 80%);
   position: absolute;
   left: 0;
@@ -2026,91 +2008,16 @@ button {
   justify-content: flex-end;
   flex-direction: column;
 }
-.projects .filter-wapper .project-item .image .layer h4 {
+.project-item .image .layer h4 {
   color: #fff;
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 4px;
 }
-.projects .filter-wapper .project-item .image .layer p {
+.project-item .image .layer p {
   font-size: 16px;
   color: #9ba4bf;
   font-weight: 600;
-}
-.projects .load-more {
-  margin-top: 10px;
-}
-.projects .load-more .load-btn {
-  padding: 0 16px;
-  height: 50px;
-  width: 166px;
-  border: 1px solid #4c6fff;
-  color: #4c6fff;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-}
-.projects .load-more .load-btn::after {
-  position: absolute;
-  content: "";
-  height: 150px;
-  width: 0;
-  right: 10px;
-  transition: all 0.4s ease-in-out;
-  background: #172541;
-  transform: rotate(-25deg);
-  z-index: -1;
-}
-.projects .load-more .load-btn:hover {
-  color: #fff;
-  border-color: #172541;
-}
-.projects .load-more .load-btn:hover::after {
-  width: 120%;
-  right: -10px;
-}
-
-.load-more {
-  margin-top: 10px;
-}
-.load-more .load-btn {
-  cursor: pointer;
-  padding: 0 16px;
-  height: 50px;
-  width: 166px;
-  border: 1px solid #4c6fff;
-  color: #4c6fff;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease-in-out;
-}
-.load-more .load-btn::after {
-  position: absolute;
-  content: "";
-  height: 150px;
-  width: 0;
-  right: 10px;
-  transition: all 0.4s ease-in-out;
-  background: #172541;
-  transform: rotate(-25deg);
-  z-index: -1;
-}
-.load-more .load-btn:hover {
-  color: #fff;
-  border-color: #172541;
-}
-.load-more .load-btn:hover::after {
-  width: 120%;
-  right: -10px;
 }
 
 .project-details {
@@ -2203,6 +2110,9 @@ button {
   display: flex;
   gap: 16px;
   margin-top: 32px;
+}
+.project-details .project-images {
+  padding-top: 32px;
 }
 @media (max-width: 992px) {
   .project-details .project-images {
@@ -2753,7 +2663,7 @@ table th {
   padding: 8px 16px;
   border: 1px solid #eee;
   position: relative;
-  font-size: 12px;
+  font-size: 14px;
   white-space: normal;
 }
 table td .icon,

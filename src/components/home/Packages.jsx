@@ -13,7 +13,7 @@ function Packages() {
         <h3 data-aos="fade-up">الاشتراك</h3>
         <div className="row">
           <div className="col-12 p-2">
-            <div className="table_container">
+            <div className="table_container" data-aos="fade-up">
               <table>
                 <thead>
                   <tr>
