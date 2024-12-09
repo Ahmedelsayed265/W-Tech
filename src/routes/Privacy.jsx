@@ -8,9 +8,9 @@ export default function Privacy() {
   return (
     <>
       <SectionHeader title={t("footer.privacy")} />
-      <section>
+      <section className="pt-5 pb-5">
         <div
-          className="cotainer"
+          className="container"
           dangerouslySetInnerHTML={{ __html: settings?.privacy }}
         />
       </section>

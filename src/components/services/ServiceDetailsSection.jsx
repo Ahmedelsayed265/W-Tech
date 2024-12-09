@@ -1,13 +1,14 @@
 import { Fancybox } from "@fancyapps/ui";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useGetServiceDetails from "./../../hooks/useGetServiceDetails";
 import DataLoader from "../../ui/loaders/DataLoader";
+import ContactModal from "../../ui/layout/ContactModal";
 
 function ServiceDetailsSection() {
   const { data: serviceDetails, isLoading } = useGetServiceDetails();
   const { t } = useTranslation();
+  const [show, setShow] = useState(false);
   useEffect(() => {
     Fancybox.bind("[data-fancybox]", {});
   }, []);
@@ -26,9 +27,9 @@ function ServiceDetailsSection() {
               <h1 data-aos="fade-up">{serviceDetails?.title}</h1>
 
               <p data-aos="fade-up">{serviceDetails?.description}</p>
-              <Link data-aos="fade-up" to="/contact">
-                {t("order_now")}
-              </Link>
+              <div data-aos="fade-up">
+                <button onClick={() => setShow(true)}>{t("order_now")}</button>
+              </div>
             </div>
           </div>
           <div className="col-lg-6 col-12">
@@ -38,6 +39,7 @@ function ServiceDetailsSection() {
           </div>
         </div>
       </div>
+      <ContactModal show={show} setShow={setShow} />
     </section>
   );
 }

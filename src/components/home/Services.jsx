@@ -29,11 +29,11 @@ function Services() {
               <div className="service-card">
                 <div className="img">
                   <img src={service?.image} alt="service-image" />
-                  <div className="icon">
-                    {service?.icon && (
+                  {service?.icon && (
+                    <div className="icon">
                       <img src={service?.icon} alt={service?.title} />
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
                 <h4 className="title">{service?.title}</h4>
                 <p>{service?.description}</p>

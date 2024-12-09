@@ -104,24 +104,32 @@ function Footer() {
             <p>{t("footer.copyright")}</p>
             <ul className="social-media">
               <li>
-                <Link to="#">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </Link>
+                {settings?.facebook && (
+                  <Link to={settings?.facebook} target="_blank">
+                    <i className="fa-brands fa-facebook-f"></i>
+                  </Link>
+                )}
               </li>
               <li>
-                <Link to="#">
-                  <i className="fa-brands fa-instagram"></i>
-                </Link>
+                {settings?.instagram && (
+                  <Link to={settings?.instagram} target="_blank">
+                    <i className="fa-brands fa-instagram"></i>
+                  </Link>
+                )}
               </li>
               <li>
-                <Link to="#">
-                  <i className="fa-brands fa-twitter"></i>
-                </Link>
+                {settings?.twitter && (
+                  <Link to={settings?.twitter} target="_blank">
+                    <i className="fa-brands fa-twitter"></i>
+                  </Link>
+                )}
               </li>
               <li>
-                <Link to="#">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </Link>
+                {settings?.linkedin && (
+                  <Link to={settings?.linkedin} target="_blank">
+                    <i className="fa-brands fa-linkedin-in"></i>
+                  </Link>
+                )}
               </li>
             </ul>
           </div>
@@ -244,9 +252,11 @@ function Footer() {
         </button>
       </div>
 
-      <Link to="#!" className="floatWhatsapp">
-        <i className="fa-brands fa-whatsapp"></i>
-      </Link>
+      {settings?.whatsapp && (
+        <Link to={settings?.whatsapp} target="_blank" className="floatWhatsapp">
+          <i className="fa-brands fa-whatsapp"></i>
+        </Link>
+      )}
     </footer>
   );
 }

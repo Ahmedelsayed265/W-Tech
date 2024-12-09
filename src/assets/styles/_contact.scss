@@ -248,4 +248,13 @@
       }
     }
   }
+  &.modal-contact {
+    padding: 0;
+    form {
+      padding: 40px 0 0;
+      box-shadow: none;
+      background: none;
+      border-radius: 0;
+    }
+  }
 }

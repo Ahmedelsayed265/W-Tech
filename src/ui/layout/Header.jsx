@@ -13,6 +13,7 @@ function Header() {
   const location = useLocation();
   const { data: services } = useGetServices();
   const { data: settings } = useGetSettings();
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const toggleNavMenu = () => {
     setShowNavMenu(!showNavMenu);
@@ -86,6 +87,16 @@ function Header() {
     setShowNavMenu(false);
   };
 
+  const handleMouseEnter = () => {
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeave = (e) => {
+    if (!e.relatedTarget?.closest(".dropdown")) {
+      setIsServicesOpen(false);
+    }
+  };
+
   return (
     <header className="header" ref={headerRef}>
       <div className="top_bar">
@@ -104,18 +115,26 @@ function Header() {
             </div>
 
             <div className="social">
-              <Link to={settings?.facebook} target="_blank">
-                <i className="fa-brands fa-facebook-f"></i>
-              </Link>
-              <Link to={settings?.instagram} target="_blank">
-                <i className="fa-brands fa-instagram"></i>
-              </Link>
-              <Link to={settings?.twitter} target="_blank">
-                <i className="fa-brands fa-twitter"></i>
-              </Link>
-              <Link to={settings?.linkedin} target="_blank">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </Link>
+              {settings?.facebook && (
+                <Link to={settings?.facebook} target="_blank">
+                  <i className="fa-brands fa-facebook-f"></i>
+                </Link>
+              )}
+              {settings?.instagram && (
+                <Link to={settings?.instagram} target="_blank">
+                  <i className="fa-brands fa-instagram"></i>
+                </Link>
+              )}
+              {settings?.twitter && (
+                <Link to={settings?.twitter} target="_blank">
+                  <i className="fa-brands fa-twitter"></i>
+                </Link>
+              )}
+              {settings?.linkedin && (
+                <Link to={settings?.linkedin} target="_blank">
+                  <i className="fa-brands fa-linkedin-in"></i>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -135,7 +154,12 @@ function Header() {
                 </NavLink>
               </li>
               <li className="nav-link">
-                <Dropdown>
+                <Dropdown
+                  show={isServicesOpen}
+                  className="dropdown"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <Dropdown.Toggle
                     as="a"
                     id="dropdownMenuButton1"
@@ -192,7 +216,8 @@ function Header() {
           </div>
           <div className="btns">
             <button className="lang_toggler" onClick={handleLang}>
-              {i18next.language === "en" ? "العربية" : "English"} <i className="fa-light fa-globe"></i>
+              {i18next.language === "en" ? "العربية" : "English"}{" "}
+              <i className="fa-light fa-globe"></i>
             </button>
 
             <div className="toogler" onClick={toggleNavMenu}>

@@ -8,9 +8,9 @@ export default function Terms() {
   return (
     <>
       <SectionHeader title={t("footer.terms")} />
-      <section>
+      <section className="pt-5 pb-5">
         <div
-          className="cotainer"
+          className="container"
           dangerouslySetInnerHTML={{ __html: settings?.terms }}
         />
       </section>

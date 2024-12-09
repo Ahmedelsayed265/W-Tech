@@ -48,13 +48,17 @@ function Contact() {
                   <p className="mb-5">{t("contact.description")}</p>
                   <ul>
                     <li className="field">
-                      <div className="icon">
-                        <i className="fa-light fa-map-location-dot"></i>
-                      </div>
-                      <div className="text">
-                        <h4>{t("contact.location.label")}</h4>
-                        <p>{t("contact.location.value")}</p>
-                      </div>
+                      {settings?.address && (
+                        <>
+                          <div className="icon">
+                            <i className="fa-light fa-map-location-dot"></i>
+                          </div>
+                          <div className="text">
+                            <h4>{t("contact.location.label")}</h4>
+                            <p>{settings?.address}</p>
+                          </div>
+                        </>
+                      )}
                     </li>
                     <li className="field">
                       <div className="icon">

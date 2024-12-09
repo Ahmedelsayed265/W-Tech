@@ -37,7 +37,7 @@
       line-height: 24px;
       margin-bottom: 24px;
     }
-    a {
+    button {
       @include clearInput();
       isolation: isolate;
       padding: 0 16px;
