@@ -1617,12 +1617,12 @@ footer .copyrights ul a i {
   color: #172541;
   font-size: 14px;
   font-weight: 600;
+  margin: 0;
 }
-.blog_details__section .blog_content .share_blog .social_share {
-  display: flex;
-  gap: 8px;
-}
-.blog_details__section .blog_content .share_blog .social_share a {
+.blog_details__section .blog_content .share_blog button {
+  border: none;
+  background: none;
+  outline: none;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1631,16 +1631,16 @@ footer .copyrights ul a i {
   align-items: center;
   justify-content: center;
 }
-.blog_details__section .blog_content .share_blog .social_share a i {
+.blog_details__section .blog_content .share_blog button i {
   margin: 0;
   transition: all 0.4s ease-in-out;
   font-size: 16px;
 }
-.blog_details__section .blog_content .share_blog .social_share a:hover {
+.blog_details__section .blog_content .share_blog button:hover {
   background: #174a8b;
   color: #174a8b;
 }
-.blog_details__section .blog_content .share_blog .social_share a:hover i {
+.blog_details__section .blog_content .share_blog button:hover i {
   color: #fff;
 }
 
@@ -2508,7 +2508,7 @@ button {
 .error-section h2 {
   margin: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   color: #172541;
   line-height: 1.7;
   max-width: 600px;
@@ -2712,6 +2712,7 @@ body main {
   width: 100%;
   position: relative;
   padding-top: 107px;
+  min-height: calc(100dvh - 300px);
 }
 @media screen and (max-width: 576px) {
   body main {

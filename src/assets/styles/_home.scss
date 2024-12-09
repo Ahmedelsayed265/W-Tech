@@ -675,27 +675,25 @@
         color: $main-color;
         font-size: 14px;
         font-weight: 600;
+        margin: 0;
       }
-      .social_share {
-        display: flex;
-        gap: 8px;
-        a {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          color: $main-color;
-          @include centerFlex();
+      button {
+        @include clearInput();
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: $main-color;
+        @include centerFlex();
+        i {
+          margin: 0;
+          transition: $transation;
+          font-size: 16px;
+        }
+        &:hover {
+          background: $second;
+          color: $second;
           i {
-            margin: 0;
-            transition: $transation;
-            font-size: 16px;
-          }
-          &:hover {
-            background: $second;
-            color: $second;
-            i {
-              color: $white;
-            }
+            color: $white;
           }
         }
       }

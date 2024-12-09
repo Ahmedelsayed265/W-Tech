@@ -8,7 +8,6 @@ function About() {
   const { t } = useTranslation();
   return (
     <>
-      <div className="header-bg"></div>
       <SectionHeader title={t("about")} />
       <AboutSection />
       <Newsletter />

@@ -30,7 +30,9 @@ function Services() {
                 <div className="img">
                   <img src={service?.image} alt="service-image" />
                   <div className="icon">
-                    <img src={service?.icon} alt={service?.title} />
+                    {service?.icon && (
+                      <img src={service?.icon} alt={service?.title} />
+                    )}
                   </div>
                 </div>
                 <h4 className="title">{service?.title}</h4>

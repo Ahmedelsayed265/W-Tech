@@ -35,6 +35,11 @@
     "description": "Our marketing services are diverse and the success is one, as it is the key element that helps projects, whether large or small, to reach their targeted customers.",
     "button": "Read More"
   },
+  "error": {
+    "pageNotFound": "هذا الرابط غير موجود لدينا او ربما تم حذفه. كيف وصلت الي هنا ؟",
+    "noAccountWithThisId": "لا يوجد مستخدم لدينا لديه هذا الـ ID. كيف وصلت الي هنا ؟",
+    "goHome": "الرئيسية"
+  },
   "slider": {
     "title1": "Revolution in Design and Development",
     "title2": "Advanced Solutions for Sustainable Growth",
@@ -93,8 +98,8 @@
     "about_us": "About Us",
     "blog_news": "Blog & News",
     "contact_us": "Contact Us",
-    "privacy_policy": "Privacy Policy",
-    "return_policy": "Return & Replacement Policy",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
     "copyright": "Copyright © 2023 All rights reserved to Wasf Al-Ibtikar Company.",
     "form": {
       "full_name": "Full Name",

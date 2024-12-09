@@ -6,7 +6,6 @@ function Works() {
   const { t } = useTranslation();
   return (
     <>
-      <div className="header-bg"></div>
       <SectionHeader title={t("ourWork")} />
       <WorksSection />
     </>

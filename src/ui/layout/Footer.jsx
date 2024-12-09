@@ -78,12 +78,10 @@ function Footer() {
                 <Link to="/contact">{t("footer.contact_us")}</Link>
               </li>
               <li>
-                <Link to="/terms">{t("footer.privacy_policy")}</Link>
+                <Link to="/terms">{t("footer.terms")}</Link>
               </li>
               <li>
-                <Link to="/recovery-replacement">
-                  {t("footer.return_policy")}
-                </Link>
+                <Link to="/privacy">{t("footer.privacy")}</Link>
               </li>
             </ul>
           </div>

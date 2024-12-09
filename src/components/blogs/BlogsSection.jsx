@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/helpers";
 import { useTranslation } from "react-i18next";
 import useGetBlogs from "../../hooks/useGetBlogs";
+import DataLoader from "../../ui/loaders/DataLoader";
 
 function BlogsSection() {
-  const { data: blogs } = useGetBlogs();
+  const { data: blogs, isLoading } = useGetBlogs();
   const { t } = useTranslation();
 
-  return (
+  return isLoading ? (
+    <DataLoader minHeight="380px" minWidth="100%" />
+  ) : (
     <section className="blogs_section">
       <div className="container">
         <div className="row">

@@ -192,7 +192,7 @@ function Header() {
           </div>
           <div className="btns">
             <button className="lang_toggler" onClick={handleLang}>
-              English <i className="fa-light fa-globe"></i>
+              {i18next.language === "en" ? "العربية" : "English"} <i className="fa-light fa-globe"></i>
             </button>
 
             <div className="toogler" onClick={toggleNavMenu}>
