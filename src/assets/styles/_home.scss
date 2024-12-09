@@ -180,7 +180,7 @@
 }
 .steps {
   padding: 100px 0 40px;
-  background-color: $white;
+  background-color: #fffcf0;
   @media (max-width: 768px) {
     padding: 80px 0;
   }
@@ -436,7 +436,7 @@
     padding: 32px;
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 100px;
     transition: $transation !important;
     gap: 10px;
     .img {
@@ -454,6 +454,7 @@
         object-fit: cover;
         border: 6px solid #f8f9fd;
         border-radius: 50%;
+        background-color: $white; 
       }
       .icon {
         width: 80px;
