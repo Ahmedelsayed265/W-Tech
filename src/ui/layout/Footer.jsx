@@ -23,7 +23,11 @@ function Footer() {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (formRef.current && !formRef.current.contains(event.target)) {
+      if (
+        formRef.current &&
+        !formRef.current.contains(event.target) &&
+        !event.target.closest(".openBtn")
+      ) {
         setOpenForm(false);
       }
     };
@@ -49,8 +53,9 @@ function Footer() {
     }
   };
 
-  const toggleForm = () => {
-    setOpenForm(!openForm);
+  const toggleForm = (e) => {
+    e.stopPropagation();
+    setOpenForm((prev) => !prev);
   };
 
   return (
