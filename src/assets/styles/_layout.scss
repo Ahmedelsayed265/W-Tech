@@ -516,6 +516,10 @@ footer {
   flex-direction: column;
   background-image: url("/bg-pattern-1.png");
   background-repeat: no-repeat;
+  margin-top: 107px;
+  @media (max-width: 576px) {
+    margin-top: 66px;
+  }
   h1 {
     color: $main-color;
     font-size: 40px;

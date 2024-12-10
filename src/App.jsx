@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import router from "./router";
 
@@ -17,7 +17,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const { isLoading: loading } = useGetSettings();
   const location = useLocation();
-  const mainRef = useRef(null);
   const language = i18next.language;
 
   useEffect(() => {
@@ -61,22 +60,12 @@ function App() {
     setTimeout(() => AOS.refresh(), 100);
   }, [location]);
 
-  useEffect(() => {
-    if (!isLoading && mainRef.current) {
-      if (location.pathname === "/") {
-        mainRef.current.classList.add("home_main");
-      } else {
-        mainRef.current.classList.remove("home_main");
-      }
-    }
-  }, [isLoading, location.pathname, mainRef]);
-
   return isLoading || loading ? (
     <Preloader />
   ) : (
     <>
       <Header />
-      <main className="content" ref={mainRef}>
+      <main className="content">
         <Routes>
           {router.map((route) => {
             return (

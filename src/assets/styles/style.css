@@ -711,6 +711,12 @@ footer .copyrights ul a i {
   flex-direction: column;
   background-image: url("/bg-pattern-1.png");
   background-repeat: no-repeat;
+  margin-top: 107px;
+}
+@media (max-width: 576px) {
+  .section-header {
+    margin-top: 66px;
+  }
 }
 .section-header h1 {
   color: #172541;
@@ -2429,6 +2435,12 @@ button {
   background-color: #f8f9fd;
   width: 100%;
   padding: 60px 0;
+  margin-top: 107px;
+}
+@media (max-width: 576px) {
+  .about_service {
+    margin-top: 66px;
+  }
 }
 .about_service .content {
   height: 100%;
@@ -2738,16 +2750,10 @@ body #root {
 body main {
   width: 100%;
   position: relative;
-  padding-top: 107px;
   min-height: calc(100dvh - 300px);
 }
-@media screen and (max-width: 576px) {
-  body main {
-    padding-top: 66px;
-  }
-}
-body main.home_main {
-  padding-top: 0;
+body main.pt-107 {
+  padding-top: 107px;
 }
 body.en {
   direction: ltr;

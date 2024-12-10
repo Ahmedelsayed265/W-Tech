@@ -25,13 +25,9 @@ body {
   main {
     width: 100%;
     position: relative;
-    padding-top: 107px;
     min-height: calc(100dvh - 300px);
-    @media screen and (max-width: 576px) {
-      padding-top: 66px;
-    }
-    &.home_main {
-      padding-top: 0;
+    &.pt-107 {
+      padding-top: 107px;
     }
   }
 

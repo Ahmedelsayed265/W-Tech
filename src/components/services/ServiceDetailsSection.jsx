@@ -18,7 +18,7 @@ function ServiceDetailsSection() {
   ) : (
     <section className="about_service">
       <div className="container">
-        <div className="row">
+        <div className="row gap-lg-0 gap-5">
           <div className="col-lg-6 col-12 p-2">
             <div className="content">
               <span className="strip2">
