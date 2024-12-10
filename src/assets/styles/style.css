@@ -1139,7 +1139,7 @@ footer .copyrights ul a i {
 }
 .steps {
   padding: 100px 0 40px;
-  background-color: #fff;
+  background-color: #fffcf0;
   position: relative;
 }
 @media (max-width: 768px) {
@@ -1389,7 +1389,7 @@ footer .copyrights ul a i {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: 100px;
   transition: all 0.4s ease-in-out !important;
   gap: 10px;
 }
@@ -1412,6 +1412,7 @@ footer .copyrights ul a i {
      object-fit: cover;
   border: 6px solid #f8f9fd;
   border-radius: 50%;
+  background-color: #fff;
 }
 .services .service-card .img .icon {
   width: 80px;
@@ -2696,6 +2697,12 @@ table {
   border-collapse: collapse;
   border-radius: 16px;
   position: relative;
+  background-color: rgba(15, 104, 182, 0.0588235294);
+  overflow: hidden;
+}
+table th:nth-child(even),
+table td:nth-child(even) {
+  background-color: #fff;
 }
 table td,
 table th {

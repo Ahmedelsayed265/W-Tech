@@ -109,6 +109,12 @@ table {
   border-collapse: collapse;
   border-radius: 16px;
   position: relative;
+  background-color: #0f68b60f;
+  overflow: hidden;
+  th:nth-child(even),
+  td:nth-child(even){
+    background-color: $white;
+  }
 
   td,
   th {
