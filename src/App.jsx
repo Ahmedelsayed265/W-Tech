@@ -12,10 +12,12 @@ import i18next from "i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import useGetSettings from "./hooks/useGetSettings";
+import useGetServices from "./hooks/useGetServices";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const { isLoading: loading } = useGetSettings();
+  const { isLoading: loadingServices } = useGetServices();
   const location = useLocation();
   const language = i18next.language;
 
@@ -60,7 +62,7 @@ function App() {
     setTimeout(() => AOS.refresh(), 100);
   }, [location]);
 
-  return isLoading || loading ? (
+  return isLoading || loading || loadingServices ? (
     <Preloader />
   ) : (
     <>
