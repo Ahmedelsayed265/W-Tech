@@ -98,7 +98,7 @@ function Header() {
   };
 
   return (
-    <header className="header" ref={headerRef}>
+    <header className="header home_header" ref={headerRef}>
       <div className="top_bar">
         <div className="container">
           <div className="contacts">
